@@ -11,7 +11,7 @@
     <center>
         <section>
     <div class="contain">
-    <form action="<?=base_url('Welcomespotify/cetak'); ?>" method="post">
+    <form action="<?=base_url('Welcomespotify/beranda'); ?>" method="post">
         <table border=0px>
             <tr>
                 <th colspan='3'>

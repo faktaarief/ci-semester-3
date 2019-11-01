@@ -8,7 +8,7 @@ Public function index() {
     //$this->load->view('view-form-spotify');
     $this->load->view('v_footer');
 }
-public function cetak(){
+public function beranda(){
 
     $this->form_validation->set_rules('email','email','required|min_length[3]',[
         'required' => 'Email Harus diisi',
@@ -25,11 +25,11 @@ public function cetak(){
             'pass'=> $this->input->post('pass')
         
         ];
-        die($data['email']);
+        $this->load->view('head',$data);
+		$this->load->view('isi');
 
     // $this->load->view('welcome_message', $data);
     
-    echo "berhasil";
     }
 
 
