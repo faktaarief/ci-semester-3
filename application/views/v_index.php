@@ -36,6 +36,7 @@
                 <tr>
                         <td colspan='3' align='center'>
                             <input type="submit" value="LOGIN" class="tombol_submit">
+                            <a href="<?= base_url('create-account'); ?>" style="text-decoration: none;"><div class="tombol_signup">SIGN UP</div></a>
                         </td>
                     </tr>
                 <tr>
