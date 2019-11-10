@@ -54,3 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['create-account'] = 'UserController/create'; 
+$route['login'] = 'LoginController/index'; 
+$route['login/auth'] = 'LoginController/auth';
+$route['dashboard'] = 'PagesController/index';
+$route['dashboard/premium'] = 'PagesController/pengguna_premium';
+$route['dashboard/free'] = 'PagesController/pengguna_gratis';
