@@ -13,9 +13,26 @@ body {
     background:orange;
     padding:8px;
     width:100%;
-    margin:0px;
+    margin-bottom:15px;
+    margin-top: 10px;
+
 }
 .tombol_submit:hover {
+    background:#FF5A0B;
+    COLOR:#fff;
+}
+
+.tombol_signup {
+    background:orange;
+    padding:8px;
+    width: 280px;
+    height: 20px;
+    text-decoration: none;
+    color: #232323;
+    font-size: 12px;
+    border: 2px solid #e6e6e6;
+}
+.tombol_signup:hover {
     background:#FF5A0B;
     COLOR:#fff;
 }
