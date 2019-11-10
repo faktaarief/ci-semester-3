@@ -2,7 +2,7 @@
 
 class Welcomespotify extends CI_Controller {
 
-Public function index() {
+public function index() {
     $this->load->view('v_header');
     $this->load->view('v_index');
     //$this->load->view('view-form-spotify');
@@ -27,12 +27,16 @@ public function beranda(){
         ];
         $this->load->view('head',$data);
 		$this->load->view('isi');
+		$this->load->view('bawahan');
 
     // $this->load->view('welcome_message', $data);
     
     }
-
-
 }
+		public function homedepan() 
+		{
+    		$this->load->view('depan');
+		}
+
 }
 ?>

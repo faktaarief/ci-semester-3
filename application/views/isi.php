@@ -1,15 +1,22 @@
 
 <section>
 <div id="picshow">
-				<img src="<?=base_url('assets/img/cover.jpg');?>" width="1300" height="740">
+				<img src="<?=base_url('assets/img/cover.jpg');?>">
 					</div>
 					<center>
 					<div id="judul">
-					<h1>Mencari Musik?</h1>
-					<h4>Mulai Mendengarkan rilis terbaru</h4>
-						<a href="">Buka Pemutar Web</a>
-						</center>
+						<h1>Mencari Musik?</h1>
+						<h4>Mulai Mendengarkan rilis terbaru</h4>
+						<a href="<?= base_url('Welcomespotify/homedepan');?>">Buka Pemutar Web</a>	
+						<!--a href="http://localhost/ci-semester-3/Welcomespotify/homedepan">Buka Pemutar Web</a-->
+					</center>
 					</div>
-					</section>
-		</body>
-	</html>
+					<div id="galeri">
+						<img src="<?=base_url('assets/img/andmesh.jpg');?>">
+						<img src="<?=base_url('assets/img/fatin.jpg');?>">
+						<img src="<?=base_url('assets/img/febi.jpg');?>">
+						<img src="<?=base_url('assets/img/armada.jpg');?>">
+						<img src="<?=base_url('assets/img/hanin.jpg');?>">
+						<img src="<?=base_url('assets/img/noah.jpg');?>">
+					</div>
+					</section>	
