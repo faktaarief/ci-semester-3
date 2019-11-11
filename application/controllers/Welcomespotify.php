@@ -35,7 +35,10 @@ public function beranda(){
 }
 		public function homedepan() 
 		{
-    		$this->load->view('depan');
+    		$this->load->view('sidebar_depan');
+			$this->load->view('head_depan');
+			$this->load->view('isi_depan');
+			$this->load->view('footer_depan');
 		}
 
 }

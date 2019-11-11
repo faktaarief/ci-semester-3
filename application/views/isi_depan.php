@@ -1,15 +1,15 @@
-<!doctype html>
+<!--!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Spotify - Home</title>
-	<link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
+	<link rel="stylesheet" type="text/css" href="<--?= base_url();?>bootstrap/css/styledepan.css">
 </head>
 
 <body>
 	<div id"wrapper">
 		<div id="sidebar">
-			<img src="<?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
+			<img src="<--?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
 				<ul> 
        			<li><a href="#">Home</a></li>
        			<li><a href="#">Search</a></li>
@@ -31,7 +31,7 @@
 					<li><a href="">NEW RELEASES</a></li>
 					<li><a href="">DISCOVER</a></li>
 					</ul>
-		</div>
+		</div-->
 			<div id="content">
 				<h2>Popular Playlist</h2>
 				<br>
@@ -95,19 +95,3 @@
 						</div>
 				</div>
 			</div>
-			
-					<div id="playlist">
-						<div id="album">
-							<img src="<?=base_url('assets/img/home/chin.jpg');?>">
-							<h3>Percaya Aku</h3>
-								<p>Chintya Gabriella</p>
-						</div>
-						<div id="audio">
-								<audio controls="controls">
-									<source src="B.mp3" type="audio/mp3" />
-								</audio>
-						</div>
-					</div>
-		</div>
-</body>
-</html>
