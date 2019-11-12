@@ -1,12 +1,8 @@
 <?php
 
-class UserController extends CI_Controller {
-
-    public function create() {
-        $this->load->view('users/v_create');
-    }
-
-    function store()
+class Register extends CI_Model 
+{
+    function insertdata()
     {
         $data = array(
             'email' => $this->input->post('email'),
@@ -18,7 +14,7 @@ class UserController extends CI_Controller {
         );
         
         $this->db->insert('users', $data);
+
         redirect('/');
     }
-
 }

@@ -87,11 +87,11 @@
                 <h2 class="text-center" style="font-size: 18px; font-weight: bold;">Create with email address</h2>
 
                 <!-- start create account form  -->
-                <form class="pt-3">
+                <form class="pt-3" action="<?= base_url(); ?>create-account/store" method="POST">
 
                     <!-- start input email  -->
                     <div class="form-group mx-auto">
-                        <input type="email" id="email" class="form-control" style="height: 50px;" required>
+                        <input type="email" id="email" name="email" class="form-control" style="height: 50px;" required>
                         <label class="form-control-placeholder" for="email">Email</label>
                         <div class="invalid-feedback">
                             Please provide a valid email.
@@ -111,7 +111,7 @@
 
                     <!-- start input password  -->
                     <div class="form-group mx-auto">
-                        <input type="password" id="password" class="form-control" style="height: 50px;" required>
+                        <input type="password" id="password" name="password" class="form-control" style="height: 50px;" required>
                         <label class="form-control-placeholder" for="password">Password</label>
                         <div id="panjang_password" style="display:none;">
                             Must be 8 character.
@@ -121,14 +121,14 @@
                     
                     <!-- start input name  -->
                     <div class="form-group mx-auto">
-                        <input type="text" id="name" class="form-control" style="height: 50px;" required>
+                        <input type="text" id="name" name="nama" class="form-control" style="height: 50px;" required>
                         <label class="form-control-placeholder" for="name">Name</label>
                     </div>
                     <!-- end input name  -->
 
                     <!-- start input date of birth -->
                     <div class="form-group mx-auto">
-                        <input type="text" id="tanggal" class="form-control tanggal" style="height: 50px;" required>
+                        <input type="text" id="tanggal" name="tgl_lahir" class="form-control tanggal" style="height: 50px;" required>
                         <label class="form-control-placeholder" for="tanggal">Date of Birth</label>
                     </div>
                     <!-- end input date of birth  -->
@@ -136,9 +136,9 @@
                     <!-- start radio gender  -->
                     <div class="form-group mx-auto">
                     <label for="Gender" style="color: #88898c;">Gender</label> <br>
-                        <input class="form-check-input ml-1" type="radio" name="jk" id="jk-man" value="Man">
+                        <input class="form-check-input ml-1" type="radio" name="jk" id="jk-man" value="L">
                         <label class="form-check-label ml-4" style="margin-right: 30px; color: #88898c;" for="Man">Man</label>
-                        <input class="form-check-input" type="radio" name="jk" id="jk-woman" value="Woman">
+                        <input class="form-check-input" type="radio" name="jk" id="jk-woman" value="P">
                         <label class="form-check-label" for="Woman" style="margin-right: 30px; color: #88898c;">Woman</label>
                         <input class="form-check-input" type="radio" name="jk" id="jk-non-biner" value="non-biner">
                         <label class="form-check-label" for="non-biner" style="color: #88898c;">Non-biner</label>
@@ -154,7 +154,7 @@
 
                 </form>
                 <!-- end create account form  -->
-                <p class="text-center" style="font-size: 14px;">Already have an account? <a href="">Sign In</a></p> 
+                <p class="text-center" style="font-size: 14px;">Already have an account? <a href="<?= base_url('login'); ?>">Sign In</a></p> 
             </div>
         </div> 
     </div>
