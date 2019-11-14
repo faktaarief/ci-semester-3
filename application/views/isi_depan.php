@@ -1,44 +1,10 @@
-<!--!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Spotify - Home</title>
-	<link rel="stylesheet" type="text/css" href="<--?= base_url();?>bootstrap/css/styledepan.css">
-</head>
-
-<body>
-	<div id"wrapper">
-		<div id="sidebar">
-			<img src="<--?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
-				<ul> 
-       			<li><a href="#">Home</a></li>
-       			<li><a href="#">Search</a></li>
-       			<li><a href="#">Your Library</a></li>
-				</ul>	
-				<div id="sidebarbottom">
-					<a href="">Install App</a>
-					<br>
-					<br>
-					<a href="">Anonymous</a>	
-       		</div>
-		</div>
-		<div id="header">
-				<ul id="list">
-					<li><a href="">FEATURED</a></li>
-					<li><a href="">PODCAST</a></li>
-					<li><a href="">CHARTS</a></li>
-					<li><a href="">GENRES & MOODS</a></li>
-					<li><a href="">NEW RELEASES</a></li>
-					<li><a href="">DISCOVER</a></li>
-					</ul>
-		</div-->
-			<div id="content">
+<div id="content">
 				<h2>Popular Playlist</h2>
 				<br>
 				<div id="galeri">
 					<div class="gambar">
 					<img src="<?=base_url('assets/img/home/tophits.jpg');?>">
-						<p>Today top hits</p>
+						<a href="<?= base_url('Welcomespotify/pl');?>">Today Top Hits</a>
 					</div>
 					
 					<div class="gambar">

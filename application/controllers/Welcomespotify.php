@@ -40,6 +40,25 @@ public function beranda(){
 			$this->load->view('isi_depan');
 			$this->load->view('footer_depan');
 		}
-
+	public function kepala() 
+		{
+			$this->load->view('sidebar_depan');
+			$this->load->view('head_depan');
+			$this->load->view('release');
+			$this->load->view('footer_depan');
+		}
+	public function genres() 
+		{
+			$this->load->view('sidebar_depan');
+			$this->load->view('head_depan');
+			$this->load->view('genre');
+			$this->load->view('footer_depan');
+		}
+	public function pl() 
+		{
+			$this->load->view('sidebar_depan');
+			$this->load->view('playlist');
+		}
+	
 }
 ?>
