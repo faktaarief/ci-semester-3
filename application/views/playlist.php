@@ -1,6 +1,6 @@
 <div id="bg">
 <div id="cover">
-	<img src="<?php base_url('assets/img/home/tophits.jpg');?>">
+	<img src="<?php base_url('assets/img/home/topind.jpg');?>">
 		<h2>Today Top Hits</h2>
 	</div>
 <div id="playlist">

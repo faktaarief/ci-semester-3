@@ -1,5 +1,5 @@
 
-					<div id="playlist">
+					<div id="playlis">
 						<div id="album">
 							<img src="<?=base_url('assets/img/home/chin.jpg');?>">
 							<h3>Percaya Aku</h3>
