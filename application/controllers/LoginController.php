@@ -6,11 +6,17 @@ class LoginController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Login');
+        $this->load->library('Session');
     }
 
     function index() 
     {
-        $this->load->view('users/v_login');
+        if($this->session->userdata('masuk') != FALSE)
+        {
+            redirect(base_url('dashboard'));
+        }
+        else
+            $this->load->view('users/v_login');
     }
 
     function auth() 
@@ -47,19 +53,20 @@ class LoginController extends CI_Controller
                 redirect(base_url('dashboard/premium'));
             }
             // jika salah 
-            else 
-            {
-                $url = base_url('login');
-                echo $this->session->set_flashdata('msg', 'Username or Password invalid');
-                
-                redirect($url);
-            }
+        }
+        else 
+        {
+            $url = base_url('login');
+            $this->session->set_flashdata('gagal', 'Username or Password invalid');
+            
+            redirect(base_url('login'));
         }
     }
 
     function logout() 
     {
-        $this->session->session_destroy();
+        $this->session->unset_userdata('masuk');
+        // $this->session->session_destroy();
         $url = base_url('login');
 
         redirect($url);

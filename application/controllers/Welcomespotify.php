@@ -2,11 +2,26 @@
 
 class Welcomespotify extends CI_Controller {
 
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->library('Session');
+    }
+
+
 public function index() {
-    $this->load->view('v_header');
-    $this->load->view('v_index');
-    //$this->load->view('view-form-spotify');
-    $this->load->view('v_footer');
+    if($this->session->userdata('masuk') != FALSE)
+        {
+            redirect(base_url('dashboard'));
+        }
+        else
+        {
+            $this->load->view('v_header');
+            $this->load->view('v_index');
+            $this->load->view('v_footer');
+        }
+
 }
 public function beranda(){
 

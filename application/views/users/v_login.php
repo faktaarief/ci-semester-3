@@ -83,15 +83,21 @@
     <div class="container" id="needs-validation" novalidate>
         <div class="row">
             <div class="col-12 p-4 mx-auto">
-                <h2 class="text-center" style="font-size: 18px; font-weight: bold;">Login to Account</h2>
-
+                <h2 class="text-center mb-4" style="font-size: 18px; font-weight: bold;">Login to Account</h2>
+                <?php if($this->session->flashdata('gagal')) { ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $this->session->flashdata('gagal'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <?php } ?>
                 <!-- start create account form  -->
                 <form class="pt-3" action="<?= base_url('login/auth'); ?>" method="POST">
 
                     <!-- start input email  -->
-                    <?= $this->session->flashdata('msg'); ?>
                     <div class="form-group mx-auto">
-                        <input type="text" id="email" class="form-control" style="height: 50px;" name="nama" required>
+                        <input type="text" id="email" class="form-control mt-3" style="height: 50px;" name="nama" required>
                         <label class="form-control-placeholder" for="email">Email or Username</label>
                         <div class="invalid-feedback">
                             Please provide a valid user.
@@ -117,7 +123,7 @@
 
                 </form>
                 <!-- end create account form  -->
-                <p class="text-center" style="font-size: 14px;">Don't have an account? <a href="">Sign Up</a></p> 
+                <p class="text-center" style="font-size: 14px;">Don't have an account? <a href="<?= base_url('create-account'); ?>">Sign Up</a></p> 
             </div>
         </div> 
     </div>

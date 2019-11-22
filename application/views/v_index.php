@@ -11,26 +11,25 @@
     <center>
         <section>
     <div class="contain">
-    <form action="<?=base_url('Welcomespotify/beranda'); ?>" method="post">
+    <form action="<?=base_url('login/auth'); ?>" method="post">
         <table border=0px>
             <tr>
                 <th colspan='3'>
+                    <small><?= $this->session->flashdata('msg'); ?></small>
                     LOGIN
                 </th></tr>  
                 <tr>
                     <td>Email</td>
                     <td>:</td>
                     <td>
-                    <input type="text" name='email'  id='email'></td>
-                    <small><?php echo form_error('email');?></small>
+                    <input type="text" name='nama'  id='email'></td>
                     </td>
                 </tr>
                 <tr>
                     <td>Password</td>
                     <td>:</td>
                     <td>
-                    <input type="text" name='pass' id='pass'></td>
-                    <small><?php echo form_error('pass');?></small>
+                    <input type="text" name='password' id='pass'></td>
                     </td>
                 </tr>
                 <tr>
