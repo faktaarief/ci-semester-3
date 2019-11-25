@@ -41,7 +41,7 @@ class LoginController extends CI_Controller
                 $this->session->set_userdata('session_id', $data['kd_user']);
                 $this->session->set_userdata('session_nama', $data['nama']);
 
-                redirect(base_url('dashboard/premium'));
+                redirect(base_url('dashboard'));
             }
             // jika user free 
             else if($data['level'] == '2')
@@ -50,7 +50,7 @@ class LoginController extends CI_Controller
                 $this->session->set_userdata('session_id', $data['kd_user']);
                 $this->session->set_userdata('session_nama', $data['nama']);
 
-                redirect(base_url('dashboard/premium'));
+                redirect(base_url('dashboard'));
             }
             // jika salah 
         }

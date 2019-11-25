@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<div id"wrapper">
+	<div>
 		<div id="sidebar">
 			<img src="<?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
 				<ul> 
