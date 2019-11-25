@@ -13,6 +13,10 @@ class RegisterController extends CI_Controller
             'level' => '2'
         );
         
-        $this->db->insert('users', $data);
+        $tes = $this->db->select('users.*, status_users.*');
+        die($tes);
+        $this->db->from('users');
+        $this->db->join('status_users', 'status_users.kd_user = users.kd_user');
+        $this->db->insert($data);
     }
 }
