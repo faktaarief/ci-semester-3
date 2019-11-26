@@ -9,7 +9,7 @@
 						<div id="audio">
 								<audio id="aud" controls="controls">
 									<?php if($this->session->userdata('akses') == 1) { ?>
-										<source src="<?= base_url('assets/music/dekat.mp3'); ?>" type="audio/mp3" />
+										<source src="<?= base_url('assets/music/percaya.mp3'); ?>" type="audio/mp3" />
 									<?php } ?>
 									<?php if($this->session->userdata('akses') == 2) { ?>
 										<source src="<?= base_url('assets/music/dekat.mp3'); ?>" type="audio/mp3" />
