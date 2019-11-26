@@ -7,17 +7,17 @@
 	<div id="list>">
 		<div id="audio">
 			<audio controls>
-				<source src="<?php base_url('assets/music/hanin.mp3');?>" type="audio/mp3">
+				<source src="<?= base_url('assets/music/hanin.mp3');?>" type="audio/mp3">
 			</audio>
 		</div>
 		<div id="audio">
 			<audio controls="controls">RAN - Dekat dihati
-				<source src="<?php base_url('assets/music/dekat.mp3');?>" type="audio/mp3" />
+				<source src="<?= base_url('assets/music/dekat.mp3');?>" type="audio/mp3" />
 			</audio>
 		</div>
 		<div id="audio">
 			<audio controls="controls">Adera - Lebih Indah
-				<source src="<?php base_url('assets/music/lebihindah.mp3');?>" type="audio/mp3" />
+				<source src="<?= base_url('assets/music/lebihindah.mp3');?>" type="audio/mp3" />
 			</audio>
 		</div>
 	</div>
