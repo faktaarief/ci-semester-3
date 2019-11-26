@@ -194,33 +194,86 @@ body
 	overflow: hidden;
 }
 
-/*#bg
+#bg
 {
-	width:1110px;
-	
-}*/
+	width:1127px;
+	background: linear-gradient(#000000, #373737);
+	float: left;
+}
+
 #cover
 {
     width:410px;
-	height:400px;
+	height:1000px;
 	overflow:hidden;
 	padding:10px;
+	margin-left:20px;
 	float:left;
+	margin-top:30px;
 }
 
 #cover img
 {
-	width:300px;
-	height:300px;
-	padding:5px;
-	margin-left: 10px;	
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	margin-right: 15px;
 }
+
+#cover h2
+{
+	padding: 10px;
+	margin-bottom:15px;
+	color: white;
+}
+
+#cover h3
+{
+	padding: 10px;
+	margin-bottom:15px;
+	color: white;
+}
+
 
 #playlist
 {
 	width: 600px;
-	height: 1000px;
 	overflow: hidden;
 	padding: 10px;
 	margin-left: 10px;
+	margin-top: 30px;
+}
+
+#listlagu
+{
+	width: 800px;
+	height:60px;
+	padding: 20px;
+}
+
+#listlagu:hover 
+{
+    background-color:#3D3C3C;
+}
+
+#listlagu h4
+{
+	overflow: hidden;
+	font-weight: bold;
+	color: white;
+}
+
+#listlagu p
+{
+	overflow: hidden;
+	float:left;
+	color: white;
+	margin-top: 10px;
+}
+
+#listlagu audio
+{
+	overflow: hidden;
+	float:right;
+	margin-right: 230px;
 }
