@@ -7,11 +7,11 @@ class Welcomespotify extends CI_Controller {
     {
         parent::__construct();
         // validasi jika user belum login
+        $this->load->model('playlist');
         if($this->session->userdata('masuk') != TRUE)
         {
             $url = base_url('login');
             redirect($url);
-            $this->load->model('playlist');
         }
     }
 
@@ -77,8 +77,9 @@ public function beranda(){
 		}
 	public function pl() 
 		{
+            $data['lagu'] = $this->playlist->ambil_lagu()->result();
 			$this->load->view('sidebar_depan');
-			$this->load->view('playlist');
+			$this->load->view('playlist', $data);
 		}
 	
 }
