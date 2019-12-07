@@ -33,67 +33,15 @@
 		</center>
 	</div>
 <div id="playlist">
+	<?php foreach($lagu as $l) { ?>
 	<div id="listlagu">
-	<h4>Halu</h4>
-		<p>Feby Putri - Halu</p>
-			<audio id="aud" controls="controls">
-				<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">				
-		</div>
-
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-		<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
-			<div id="listlagu">
-			<h4>Percaya Aku</h4>
-				<p>Chintya Gabriella - Percaya Aku</p>
-					<audio id="aud" controls="controls">
-						<source src="<?= base_url('assets/music/halu.mp3'); ?>" type="audio/mp3">
-		</div>
+	<h4><?= $l->judul_lagu; ?></h4>
+			<p><?= $l->penyanyi; ?> - <?= $l->judul_lagu; ?></p>
+				<audio id="aud" controls="controls">
+					<source src="<?= base_url('assets/music/'.str_replace(' ', '_', $l->judul_lagu).'.mp3'); ?>" type="audio/mp3">				
+			</div>
+		<?php } ?>
+		
 	</div>
 </div>
 </body>
