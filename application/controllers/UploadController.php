@@ -7,11 +7,30 @@ class UploadController extends CI_Controller
         parent::__construct();
         $this->load->model('genre');
     }
-
-    public function index()
+	public function index() 
+		{
+		$this->load->view('head',$data);
+		$this->load->view('isi');
+		$this->load->view('bawahan');
+		}
+	
+	/*public function admin() 
+		{
+			$this->load->view('admin/home_admin');
+			$this->load->view('admin/isi_admin');
+		}*/
+	
+		public function daftar() 
+		{
+		$this->load->view('admin/home_admin');
+		$this->load->view('admin/daftarlagu');
+		}
+	
+    public function admin()
     {
+		$this->load->view('admin/home_admin');
         $genre['genres'] = $this->genre->show_genre()->result();
-        $this->load->view('admin/upload', $genre);
+        $this->load->view('admin/isi_admin', $genre);
     }
 
     public function store()
@@ -44,6 +63,7 @@ class UploadController extends CI_Controller
             $msg = $this->session->set_flashdata('sukses', 'Lagu Berhasil Ditambahkan!');
 			$this->load->view('admin/upload', $msg);
         }
+			
 
     }
 

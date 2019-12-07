@@ -46,7 +46,7 @@ body
 }
 #menu li:last-child a{border-right:none}
 #menu li a:hover {
-    background-color:#28a745;
+	color: #28a745;
 	}
 
 #picshow{
@@ -71,16 +71,26 @@ body
 
 #judul a
 {
-	color:#F0FFFF;
-	background:#2F4F4F;
 	padding:20px;
-	font-size:25px;
 	margin-right:20px;
-	font-weight:bold;
 	text-decoration:none;
+	font-size: 20px;
+            color: #FFF;
+            letter-spacing: 2px;
+            font-weight: bold;
+            line-height: 15px;
+            border: 2px solid #1DB954;
+            border-radius: 40px;
+            background: #1DB954;
+            transition: all 0.3s ease 0s;
+            width: 320px;
+            height: 48px;
+	
 	}
 #judul a:hover {
     background-color:#28a745;
+	color: #FFF;
+	border: 2px solid #14db5a;
 	}
 #galeri
 { 	width: 1366px;
