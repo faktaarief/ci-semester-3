@@ -10,6 +10,9 @@
 <label>Judul Lagu</label> <br>
 	<input type="text" name="judul_lagu"> <br><br>
 
+<label>Penyanyi / Artis</label> <br>
+	<input type="text" name="penyanyi"> <br><br>
+
 <label>Input File</label><br>
 	<input type="file" name="berkas"> <br><br>
 

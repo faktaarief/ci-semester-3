@@ -47,6 +47,8 @@ class UploadController extends CI_Controller
 
         $todb = array(
             'judul_lagu' => $this->input->post('judul_lagu'),
+            'penyanyi' => $this->input->post('penyanyi'),
+            'album' => $this->input->post('album'),
             'kd_genre' => $this->input->post('kd_genre')
         );
 

@@ -256,6 +256,11 @@ body
     background-color:#3D3C3C;
 }
 
+#listlagu h1
+{
+	color: white;
+}
+
 #listlagu h4
 {
 	overflow: hidden;

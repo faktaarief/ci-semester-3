@@ -64,3 +64,5 @@ $route['admin/dashboard/store'] = 'UploadController/store';
 $route['dashboard/premium'] = 'PagesController/pengguna_premium';
 $route['dashboard/free'] = 'PagesController/pengguna_gratis';
 $route['logout'] = 'LoginController/logout';
+$route['playlist'] = 'Welcomespotify/pl';
+$route['playlist/cari'] = 'Welcomespotify/cari';

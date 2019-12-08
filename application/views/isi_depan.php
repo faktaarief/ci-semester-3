@@ -4,7 +4,7 @@
 				<div id="galeri">
 					<div class="gambar">
 					<img src="<?=base_url('assets/img/home/tophits.jpg');?>">
-						<a href="<?= base_url('Welcomespotify/pl');?>">Today Top Hits</a>
+						<a href="<?= base_url('playlist');?>">Today Top Hits</a>
 					</div>
 					
 					<div class="gambar">

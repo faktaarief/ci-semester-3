@@ -40,4 +40,11 @@ class PagesController extends CI_Controller
             echo "You don't have permission to access this page";
         }
     }
+
+    function cari() 
+    {
+        $keyword = $this->input->post('keyword');
+		$data['products']=$this->playlist->get_product_keyword($keyword);
+		$this->load->view('search',$data);
+    }
 }

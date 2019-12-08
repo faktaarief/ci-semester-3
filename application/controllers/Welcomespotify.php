@@ -80,6 +80,17 @@ public function beranda(){
             $data['lagu'] = $this->playlist->ambil_lagu()->result();
 			$this->load->view('sidebar_depan');
 			$this->load->view('playlist', $data);
+        }
+        
+	public function cari() 
+		{
+            // $data['lagu'] = $this->playlist->ambil_lagu()->result();
+            // $this->load->view('playlist-cari', $data);
+            
+            $keyword = $this->input->post('keyword');
+            $data['products']=$this->playlist->get_product_keyword($keyword);
+			$this->load->view('sidebar_depan');
+            $this->load->view('playlist-cari',$data);
 		}
 	
 }
