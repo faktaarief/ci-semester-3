@@ -7,6 +7,11 @@ class Playlist extends CI_Model
         return $this->db->get('lagu');
     }
 
+    function ambil_genre() 
+    {
+        return $this->db->get('genre_music');
+    }
+
     public function joinTable() 
     {
         $this->db->select('lagu.*, genre_music.kd_genre, genre_music.genre');
@@ -52,11 +57,11 @@ class Playlist extends CI_Model
 		$this->db->delete($table);
 	}
 
-    function genre_pop_indo() 
+    function genre_view($kd_genre) 
     {
         $this->db->select('*');
         $this->db->from('lagu');
-        $this->db->where('kd_genre', 1);
+        $this->db->where('kd_genre', $kd_genre);
         return $this->db->get()->result();
     }
 
