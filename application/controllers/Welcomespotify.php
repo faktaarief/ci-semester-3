@@ -70,9 +70,10 @@ public function beranda(){
 		}
 	public function genres() 
 		{
+            $data['genres'] = $this->genre->show_genre()->result();
 			$this->load->view('sidebar_depan');
 			$this->load->view('head_depan');
-			$this->load->view('genre');
+			$this->load->view('genre', $data);
 			$this->load->view('footer_depan');
 		}
 	public function pl() 
@@ -81,7 +82,22 @@ public function beranda(){
 			$this->load->view('sidebar_depan');
 			$this->load->view('playlist', $data);
         }
+
         
+    public function genres_playlist() 
+    {
+        if(current_url() == base_url('genres/pop-indo')) {
+            $data['lagu'] = $this->playlist->genre_pop_indo();
+            $this->load->view('sidebar_depan');
+            $this->load->view('playlist', $data);
+        } else if(current_url() == base_url('genres/dangdut')) {
+            $data['lagu'] = $this->playlist->genre_dangdut();
+            $this->load->view('sidebar_depan');
+            $this->load->view('playlist', $data);
+        }
+              
+    }
+       
 	public function cari() 
 		{
             // $data['lagu'] = $this->playlist->ambil_lagu()->result();
