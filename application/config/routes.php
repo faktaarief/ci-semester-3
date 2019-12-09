@@ -66,11 +66,17 @@ $route['admin/dashboard/daftar-lagu'] = 'UploadController/daftar';
 $route['admin/dashboard/daftar-lagu/cari'] = 'UploadController/cari';
 $route['admin/dashboard/daftar-lagu/edit/(:num)'] = 'UploadController/edit/$1';
 $route['admin/dashboard/daftar-lagu/hapus/(:num)'] = 'UploadController/hapus/$1';
+
+$route['admin/dashboard/daftar-genre'] = 'UploadController/daftargenre';
+$route['admin/dashboard/tambah-genre'] = 'UploadController/tambahgenre';
+$route['admin/dashboard/store-genre'] = 'UploadController/storegenre';
+$route['admin/dashboard/daftar-genre/edit/(:num)'] = 'UploadController/edit_genre/$1';
+
 $route['dashboard/premium'] = 'PagesController/pengguna_premium';
 $route['dashboard/free'] = 'PagesController/pengguna_gratis';
 $route['logout'] = 'LoginController/logout';
 $route['playlist'] = 'Welcomespotify/pl';
 $route['playlist/cari'] = 'Welcomespotify/cari';
 $route['genres'] = 'Welcomespotify/genres';
-$route['genres/pop-indo'] = 'Welcomespotify/genres_playlist';
-$route['genres/dangdut'] = 'Welcomespotify/genres_playlist';
+// $route['genres'] = 'Welcomespotify/genres_playlist';
+$route['genres/(:any)'] = 'Welcomespotify/genres_playlist';

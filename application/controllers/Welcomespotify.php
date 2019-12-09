@@ -86,8 +86,12 @@ public function beranda(){
         
     public function genres_playlist() 
     {
-        if(current_url() == base_url('genres/pop-indo')) {
-            $data['lagu'] = $this->playlist->genre_pop_indo();
+        $slug = $this->input->post('genre');
+        $kd_genre = $this->input->post('kd_genre');
+        // echo $slug;
+
+        if(current_url() == base_url('genres' . '/' . $slug)) {
+            $data['lagu'] = $this->playlist->genre_view($kd_genre);
             $this->load->view('sidebar_depan');
             $this->load->view('playlist', $data);
         } else if(current_url() == base_url('genres/dangdut')) {

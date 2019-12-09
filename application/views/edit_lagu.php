@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <th>Tgl Upload</th>
-				<td>2019-12-06</td>
+				<td><?= date('d - m - Y', $l->tgl_upload); ?></td>
             </tr>
             <tr>
                 <th>Judul Lagu</th>
@@ -31,11 +31,12 @@
             <tr>
                 <th>Genre</th>
 				<td><select name="kd_genre">
-                            <?php foreach ($genre as $g) { ?>
-                                <option selected hidden value=<?= $g->kd_genre ?>><?= $g->genre ?></option>
-                                <option value="1">Pop Indo</option>
+                            <option selected hidden value=<?= $l->kd_genre ?>><?= $l->genre ?></option>
+                            <?php foreach ($genres as $g) { ?>
+                                <option value=<?= $g->kd_genre ?>><?= $g->genre ?></option>
+                                <!-- <option value="1">Pop Indo</option>
                                 <option value="2">Dangdut</option>
-                                <option value="3">Lawas</option>
+                                <option value="3">Lawas</option> -->
                             <?php } ?>
                     </select> 
                 </td>

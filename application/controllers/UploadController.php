@@ -27,6 +27,25 @@ class UploadController extends CI_Controller
             $this->load->view('admin/home_admin');
             $this->load->view('admin/daftarlagu', $data);
         }
+
+        public function daftargenre()
+        {
+            $data['lagu'] = $this->playlist->ambil_genre()->result();
+            // $data['lagu'] = $this->playlist->joinTable()->result();
+            $this->load->view('admin/home_admin');
+            $this->load->view('admin/daftargenre', $data);
+        }
+
+        public function edit_genre($id = null) 
+        {
+            $where = array(
+                'kd_genre' => $id
+            );
+
+		    $this->load->view('admin/home_admin');
+            $data['genres'] = $this->genre->show_edit_genre($where);
+            $this->load->view('edit_genre', $data);
+        }
         
         public function edit($id = null) 
         {
@@ -35,7 +54,8 @@ class UploadController extends CI_Controller
             );
 
 		    $this->load->view('admin/home_admin');
-            $data['lagu'] = $this->playlist->edit_daftar($where, 'lagu')->result();
+            $data['lagu'] = $this->playlist->edit_daftar_genre($where, 'lagu')->result();
+            $data['genres'] = $this->genre->show_genre()->result();
             $data['genre'] = $this->playlist->edit_daftar_genre($where, 'lagu')->result();
             $this->load->view('edit_lagu', $data);
         }
@@ -101,6 +121,12 @@ class UploadController extends CI_Controller
         $this->load->view('admin/isi_admin', $genre);
     }
 
+    public function tambahgenre()
+    {
+        $this->load->view('admin/home_admin');
+        $this->load->view('admin/isi_genre');
+    }
+
     public function store()
     {
         $data = array(
@@ -112,7 +138,7 @@ class UploadController extends CI_Controller
         );
         
         $this->load->library('upload', $data);
-
+        
         $todb = array(
             'judul_lagu' => $this->input->post('judul_lagu'),
             'penyanyi' => $this->input->post('penyanyi'),
@@ -135,6 +161,43 @@ class UploadController extends CI_Controller
         {
             $msg = $this->session->set_flashdata('sukses', 'Lagu Berhasil Ditambahkan!');
             redirect('admin/dashboard/daftar-lagu');
+        }
+			
+
+    }
+
+    public function storegenre()
+    {
+        $data = array(
+            'upload_path' => './assets/img/home/pop/', // folder lagu di simpan
+            'file_name' => $this->upload->data('file_name'),
+            'allowed_types' => 'jpg|jpeg|png', // ekstensi yang diizinkan
+            'overwrite' => true, // replace lagu yang sudah ada
+            'max_size' => 1024 // 1MB
+        );
+        
+        $this->load->library('upload', $data);
+        die($data['file_name']);
+        $todb = array(
+            'tgl_buat' => time(),
+            'genre' => $this->input->post('genre'),
+            'thumbnail' => $data['file_name'],
+            'slug' => $this->input->post('slug')
+        );
+
+        $this->db->insert('genre_music', $todb);
+       
+
+        if(!$this->upload->do_upload('berkas'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+			$this->load->view('admin/home_admin');
+            $this->load->view('admin/isi_genre', $error);;
+        } 
+        else
+        {
+            $msg = $this->session->set_flashdata('sukses', 'Lagu Berhasil Ditambahkan!');
+            redirect('admin/dashboard/daftar-genre');
         }
 			
 
