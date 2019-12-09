@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
 <div id="wrapper">
 <div id="wrapprofil">
 	<center><img src="<?=base_url('assets/img/home/profil.jpg');?>" width="1100" height="580"></center>
