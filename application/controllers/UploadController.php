@@ -13,7 +13,11 @@ class UploadController extends CI_Controller
 		$this->load->view('isi');
 		$this->load->view('bawahan');
 		}
-	
+	public function home() 
+		{
+		$this->load->view('admin/home_admin');
+		$this->load->view('admin/isi_admin');
+		}
 	/*public function admin() 
 		{
 			$this->load->view('admin/home_admin');
@@ -98,7 +102,7 @@ class UploadController extends CI_Controller
     {
 		$this->load->view('admin/home_admin');
         $genre['genres'] = $this->genre->show_genre()->result();
-        $this->load->view('admin/isi_admin', $genre);
+        $this->load->view('admin/inputlagu', $genre);
     }
 
     public function store()

@@ -7,7 +7,7 @@
 <body>
 	<div id="header">
 		<div id="addpl">
-	<a href="<?= base_url('Welcomespotify/homedepan');?>">Tambah Playlist</a>
+	<a href="<?= base_url('UploadController/admin');?>">Tambah Lagu</a>
 </div>
 
 	<h1>Daftar Lagu</h1>

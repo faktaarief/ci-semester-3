@@ -10,7 +10,7 @@
 		<div id="sidebar">
 			<img src="<?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
 				<ul> 
-       			<li><a href="#">Home</a></li>
+       			<li><a href="<?= base_url('UploadController/home');?>">Home</a></li>
        			<li><a href="<?= base_url('UploadController/daftar');?>">Daftar Lagu</a></li>
 				<li><a href="<?= base_url('logout');?>">Logout</a></li>
 				<div id="sidebarbottom">

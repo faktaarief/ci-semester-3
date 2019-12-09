@@ -43,6 +43,9 @@ body
 	color: #ffffff;
 	font-weight: bold;
 }
+#sidebar li a:hover {
+    color:#28a745;
+	}
 #sidebarbottom
 {
 	margin-top: 250px;
@@ -450,14 +453,71 @@ body
             border-radius: 40px;
             background: #1DB954;
             transition: all 0.3s ease 0s;
-            
-	
 	}
 #addpl a:hover {
     background-color:#28a745;
 	color: #FFF;
 	border: 2px solid #14db5a;
 	}
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666;
+  text-shadow: 1px 1px 0px #fff;
+  background: #eaebec;
+  border: #ccc 1px solid;
+}
+
+table th {
+  padding: 15px 35px;
+  border-left:1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ededed;
+}
+
+table th:first-child{  
+  border-left:none;  
+}
+
+table tr {
+  text-align: center;
+  padding-left: 20px;
+}
+
+table td:first-child {
+  text-align: left;
+  padding-left: 20px;
+  border-left: 0;
+}
+
+table td {
+  padding: 15px 35px;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
+table tr:last-child td:first-child {
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+table tr:last-child td:last-child {
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+table tr:hover td {
+  background: #f2f2f2;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+} 
 
 /*Menu Profil*/
 
@@ -594,4 +654,54 @@ body
 	font-size: 18px;
 	font-weight: normal;
 	margin-bottom: 30px;
+}
+
+/* Form Input/Upload*/
+#headupload
+{
+	background-color:#171717;
+	width: 1110px;
+	height: 80px;
+	overflow: hidden;
+	padding: 20px;	
+}
+
+#headupload h2
+{
+	color: #28a745;
+}
+#forminput
+{
+	padding: 30px;
+	overflow: hidden;
+}
+#forminput h2
+{
+	padding: 5px;
+	margin-top: 15px;	
+	margin-left: 20px;
+	float: left;
+	color: white;
+}
+
+#forminput input
+{
+	padding:5px;
+	margin-right: 180px;
+	margin-bottom: 10px;
+	width: 400px;
+	float: right;	
+	color:#494949;
+	font-size: 13px;
+}
+
+#forminput select
+{
+	padding:5px;
+	margin-right: 180px;
+	margin-bottom: 10px;
+	width: 400px;
+	float: right;	
+	color:#494949;
+	font-size: 13px;
 }
