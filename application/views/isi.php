@@ -15,7 +15,7 @@
 					<div id="judul">
 						<h1>Kelola Spotify</h1>
 						<h4>Update Spotify agar tidak ketinggalan</h4>
-						<a href="<?= base_url('UploadController/admin');?>">Kelola Spotify</a>	
+						<a href="<?= base_url('admin/dashboard/upload');?>">Kelola Spotify</a>	
 						<!--a href="http://localhost/ci-semester-3/Welcomespotify/homedepan">Buka Pemutar Web</a-->
 					</center>
 					</div>

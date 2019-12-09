@@ -11,7 +11,7 @@
 		<div id="sidebar">
 			<img src="<?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
 				<ul> 
-       			<li><a href="#">Home</a></li>
+       			<li><a href="<?= base_url('dashboard'); ?>">Home</a></li>
        			<li>
 				   	<?php echo form_open('playlist/cari') ?>
 						<input type="text" name="keyword" placeholder="search">

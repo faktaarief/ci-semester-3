@@ -7,42 +7,52 @@
 <body>
 	<div id="header">
 	<h1>Daftar Lagu</h1>
+	<?= $this->session->flashdata('sukses'); ?>
 	</div>
 	<div id="daftar">
+		<style>
+		table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+		</style>
+		<?php echo form_open('admin/dashboard/daftar-lagu/cari') ?>
+			<input type="text" name="keyword" placeholder="search">
+			<input type="submit" name="search_submit" value="Cari">
+		<?php echo form_close() ?>
 	<table cellspacing='0'>
 		<thead>
 			<tr>
+				<th>No</th>
+				<th>Tgl Upload</th>
 				<th>Judul Lagu</th>
 				<th>Artis</th>
 				<th>Album</th>
 				<th>Dirilis</th>
+				<th>Genre</th>
+				<th>File</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
+			<?php $a = 1; foreach ($lagu as $l) { ?>
 			<tr>
-				<td>Percaya Aku</td>
-				<td>Chintya Gabriella</td>
-				<td>Percaya Aku</td>
-				<td>2019</td>
+				<td><?= $a++; ?></td>
+				<td><?= date('d - m - Y', $l->tgl_upload); ?></td>
+				<td><?= $l->judul_lagu; ?></td>
+				<td><?= $l->penyanyi; ?></td>
+				<td><?= $l->album; ?></td>
+				<td><?= $l->dirilis; ?></td>
+				<td><?= $l->genre; ?></td>
+				<td>
+					<audio id="aud" controls="controls">
+						<source src="<?= base_url('assets/music/'.str_replace(' ', '_', $l->judul_lagu).'.mp3'); ?>" type="audio/mp3" />
+					</audio>
+				</td>
+				<td><a href="<?= base_url('admin/dashboard/daftar-lagu/edit').'/'.$l->kd_lagu ?>">edit</a> | <a href="<?= base_url('admin/dashboard/daftar-lagu/hapus').'/'.$l->kd_lagu ?>">hapus</a></td>
 			</tr>
-			<tr>
-				<td>Budi</td>
-				<td>Bandung</td>
-				<td>Web Developer</td>
-				<td>26</td>
-			</tr>
-			<tr>
-				<td>Cahyo</td>
-				<td>Bekasi</td>
-				<td>Web Programmer</td>
-				<td>29</td>
-			</tr>
-			<tr>
-				<td>Darma</td>
-				<td>Bali</td>
-				<td>Teknisi</td>
-				<td>35</td>
-			</tr>
+			<?php } ?>
 		</tbody>
 	</table>
 		</div>

@@ -6,4 +6,5 @@ class Genre extends CI_Model
     {
         return $this->db->get('genre_music');
     }
+    
 }
