@@ -7,7 +7,6 @@
 </head>
 
 <body>
-	<div>
 		<div id="sidebar">
 			<img src="<?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
 				<ul>
@@ -23,7 +22,7 @@
 				<div id="sidebarbottom">
 					<br>
 					<br>
-					<a href="">Admin User</a>	
+					<a href="<?= base_url('Welcomespotify/profil');?>">Admin User</a>	
        		</div>
 		</div>
-	</div>
+	
