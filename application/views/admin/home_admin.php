@@ -11,14 +11,14 @@
 		<div id="sidebar">
 			<img src="<?=base_url('assets/img/logoblogg.png');?>" width="135" height="52">
 				<ul> 
-       			<li><a href="#">Kelola Spotify</a></li>
+       			<li><a href="#">Home</a></li>
        			<li><a href="<?= base_url('UploadController/daftar');?>">Daftar Lagu</a></li>
-       			<li><a href="#">Permintaan User</a></li>
+       			<li><a href="#">Logout</a></li>
 				</ul>	
 				<div id="sidebarbottom">
 					<br>
 					<br>
-					<a href="">Admin User</a>	
+					<a href="<?= base_url('Welcomespotify/profil');?>">Admin User</a>	
        		</div>
 		</div>
 	</div>

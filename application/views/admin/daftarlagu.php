@@ -1,50 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Daftar Lagu</title>
-        <link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
-</head>
-<body>
-	<div id="header">
-	<h1>Daftar Lagu</h1>
-	</div>
-	<div id="daftar">
-	<table cellspacing='0'>
-		<thead>
-			<tr>
-				<th>Judul Lagu</th>
-				<th>Artis</th>
-				<th>Album</th>
-				<th>Dirilis</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Percaya Aku</td>
-				<td>Chintya Gabriella</td>
-				<td>Percaya Aku</td>
-				<td>2019</td>
-			</tr>
-			<tr>
-				<td>Budi</td>
-				<td>Bandung</td>
-				<td>Web Developer</td>
-				<td>26</td>
-			</tr>
-			<tr>
-				<td>Cahyo</td>
-				<td>Bekasi</td>
-				<td>Web Programmer</td>
-				<td>29</td>
-			</tr>
-			<tr>
-				<td>Darma</td>
-				<td>Bali</td>
-				<td>Teknisi</td>
-				<td>35</td>
-			</tr>
-		</tbody>
-	</table>
-		</div>
-</body>
-</html>
+
+<div id="addpl">
+	<a href="<?= base_url('Welcomespotify/homedepan');?>">Tambah Playlist</a>
+</div>
+
+<div id="content">
+				<h2>Popular Playlist</h2>
+				<br>
+				<div id="galeri">
+					<div class="gambar">
+					<img src="<?=base_url('assets/img/home/tophits.jpg');?>">
+						<a href="<?= base_url('Welcomespotify/pl');?>">Today Top Hits</a>
+					</div>
+					
+					<div class="gambar">
+						<img src="<?=base_url('assets/img/home/ind.jpg');?>">
+						<p>Top Hits Indonesia</p>
+					</div>
+					<div class="gambar">
+						<img src="<?=base_url('assets/img/home/santai.jpg');?>">
+						<p>Santai Sejenak</p>
+					</div>
+					<div class="gambar">
+						<img src="<?=base_url('assets/img/home/kopikustik.png');?>">
+						<p>Kopikustik</p>
+					</div>
+					<div class="gambar">
+						<img src="<?=base_url('assets/img/home/megahits.jpg');?>">
+					<p>Mega Hits Mix</p>
+					</div>
+					<div class="gambar">
+						<img src="<?=base_url('assets/img/home/acous.jpg');?>">
+						<p>Calming Acoustic</p>
+					</div>
+				</div>
+				</div>
+				<div id="content">
+				<h2>Based on your recent listening</h2>
+				<br>
+				<div id="galeri">
+						<div class="gambar">
+							<img src="<?=base_url('assets/img/home/young.jpg');?>">
+							<p>Young, wild, free</p>
+						</div>
+					
+						<div class="gambar">
+							<img src="<?=base_url('assets/img/home/flo.jpg');?>">
+							<p>Santuy</p>
+						</div>
+					
+						<div class="gambar">
+							<img src="<?=base_url('assets/img/home/workout.jpg');?>">
+							<p>Workout</p>
+						</div>
+						<div class="gambar">
+							<img src="<?=base_url('assets/img/home/werkout.jpg');?>">
+							<p>Lepas</p>
+						</div>
+						<div class="gambar">
+							<img src="<?=base_url('assets/img/home/winter.jpg');?>">
+							<p>Winter</p>
+						</div>
+						<div class="gambar">
+							<img src="<?=base_url('assets/img/home/viral.jpg');?>">
+							<p>Lagi Viral</p>
+						</div>
+				</div>
+			</div>

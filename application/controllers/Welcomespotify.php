@@ -92,6 +92,12 @@ public function beranda(){
 			$this->load->view('sidebar_depan');
             $this->load->view('playlist-cari',$data);
 		}
+	public function profil() 
+		{
+			$this->load->view('head');
+			$this->load->view('admin/profil');
+			$this->load->view('bawahan');
+		}
 	
 }
 ?>

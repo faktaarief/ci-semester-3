@@ -3,6 +3,7 @@
 <head>
 <title>Musik Untuk Semua Orang</title>
  <link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/beranda.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
 </head>
 <body>
 <div id="wrapp">
