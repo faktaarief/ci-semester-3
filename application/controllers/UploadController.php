@@ -123,15 +123,12 @@ class UploadController extends CI_Controller
 		$this->load->view('admin/home_admin');
         $genre['genres'] = $this->genre->show_genre()->result();
         $this->load->view('admin/inputlagu', $genre);
-<<<<<<< HEAD
-=======
     }
 
     public function tambahgenre()
     {
         $this->load->view('admin/home_admin');
         $this->load->view('admin/isi_genre');
->>>>>>> c4debd2d7eff51579b7d7a5eba6b7e38590e826c
     }
 
     public function store()

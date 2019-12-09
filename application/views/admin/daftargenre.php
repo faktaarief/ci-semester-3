@@ -6,6 +6,9 @@
 </head>
 <body>
 	<div id="header">
+		<div id="addpl">
+	<a href="<?= base_url('admin/dashboard/tambah-genre');?>">Tambah Playlist</a>
+</div>
 	<h1>Daftar Lagu</h1>
 	<?= $this->session->flashdata('sukses'); ?>
 	</div>
