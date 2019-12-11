@@ -22,8 +22,8 @@
 }
 		</style>
 		<?php echo form_open('admin/dashboard/daftar-lagu/cari') ?>
-			<input class="search" name="keyword" placeholder="search" required>
-			<input class="submit" type="submit" value="Cari">
+			<input class="searchlagu" name="keyword" placeholder="search" required>
+			<input class="carilagu" type="submit" value="Cari">
 		<?php echo form_close() ?>
 	<table cellspacing='0'>
 		<thead>
