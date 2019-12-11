@@ -9,23 +9,23 @@
 
 	<div id="forminput">
 		<h2>Judul Lagu</h2> <br>	
-			<input type="text" name="judul_lagu"> <br><br>
+			<input class="upload" type="text" name="judul_lagu" placeholder="Masukkan Judul Lagu"> <br><br>
 				<hr color="#928E8E" align="left">
 					<br>
 		<h2>Penyanyi / Artis</h2> <br>
-			<input type="text" name="penyanyi"> <br><br>
+			<input  class="upload" type="text" name="penyanyi" placeholder="Masukkan nama Penyanyi"> <br><br>
 				<hr color="#928E8E" align="left">
 					<br>
 		<h2>Album</h2> <br>
-			<input type="text" name="album"> <br><br>
+			<input class="upload" type="text" name="album" placeholder="Masukkan nama Album"> <br><br>
 				<hr color="#928E8E" align="left">
 					<br>
 		<h2>Dirilis</h2> <br>
-			<input type="text" name="dirilis"> <br><br>
+			<input class="upload" type="text" name="dirilis" placeholder="Tanggal Dirilis"> <br><br>
 					<hr color="#928E8E" align="left">
 					<br>
 		<h2>Input File</h2><br>
-			<input type="file" name="berkas"> <br><br>
+			<input class="file" type="file" name="berkas"> <br><br>
 					<hr color="#928E8E" align="left">
 					<br>
 		<h2>Genre</h2><br>
@@ -35,7 +35,7 @@
 				<?php } ?>
 			</select> 
 <center>
-		<br><br><br><br><br><br><input type="submit" value="Tambah"></center>
+		<br><br><br><br><br><br><input class="file" type="submit" value="Tambah"></center>
 		</form>
 	</div>
 
