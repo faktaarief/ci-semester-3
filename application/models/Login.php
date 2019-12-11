@@ -10,4 +10,11 @@ class Login extends CI_Model
         return $query;
     }
 
+    function auth_admin($nama, $password)
+    {
+        $query = $this->db->query("SELECT * FROM admin WHERE nama='$nama' OR email='$nama' AND password=MD5('$password') LIMIT 1");
+        
+        return $query;
+    }
+
 }

@@ -54,7 +54,9 @@
 						<source src="<?= base_url('assets/music/'.str_replace(' ', '_', $l->judul_lagu).'.mp3'); ?>" type="audio/mp3" />
 					</audio>
 				</td>
-				<td><a href="<?= base_url('admin/dashboard/daftar-lagu/edit').'/'.$l->kd_lagu ?>">edit</a> | <a href="<?= base_url('admin/dashboard/daftar-lagu/hapus').'/'.$l->kd_lagu ?>">hapus</a></td>
+				<?php echo form_open('admin/dashboard/daftar-lagu/hapus'. '/' . $l->kd_lagu) ?>
+					<td><a href="<?= base_url('admin/dashboard/daftar-lagu/edit').'/'.$l->kd_lagu ?>">edit</a> | <input type="hidden" name="judul_lagu" value="<?= $l->judul_lagu; ?>"> <input type="submit" value="hapus"></td>
+				<?php echo form_close() ?>
 			</tr>
 			<?php } ?>
 		</tbody>

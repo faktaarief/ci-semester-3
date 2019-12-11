@@ -11,10 +11,10 @@
 	<div id="daftar">
 	<table cellspacing='0'>
 		<thead>
-            <?php echo form_open_multipart('UploadController/update') ?>
+            <?php echo form_open_multipart('admin/dashboard/daftar-genre/edit/store') ?>
             <?php $a = 1; foreach ($genres as $l) { ?>
 			<tr>
-                <td><input type="hidden" value="<?= $l->kd_lagu; ?>" name="kd_lagu"></td>
+                <td><input type="hidden" value="<?= $l->kd_genre; ?>" name="kd_genre"></td>
             </tr>
             <tr>
                 <th>Tgl Buat</th>
@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <th>Thumbnail</th>
-				<td><input disabled type="text" value="<?= $l->thumbnail; ?>" name="thumbnail"></td>
+				<td><input type="text" value="<?= trim($l->thumbnail, '.jpg'); ?>" name="thumbnail"></td>
             </tr>
             <tr>
                 <th>File Thumbnail</th>
@@ -41,7 +41,7 @@
 				<td><input type="text" value="<?= $l->slug; ?>" name="slug"></td>
             </tr>
             <tr>
-                <td style="text-align: center;" colspan="2"><input type="submit" value="update"> | <a href="#">kembali</></td>
+                <td style="text-align: center;" colspan="2"><input type="submit" value="update"> | <a href="javascript:history.go(-1)">kembali</></td>
 			</tr>
             <?php } ?>
             <?php echo form_close() ?>

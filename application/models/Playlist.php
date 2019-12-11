@@ -52,6 +52,12 @@ class Playlist extends CI_Model
         $this->db->update($table, $data);
     }
 
+    public function update_genre($where, $data, $table) 
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
+
     public function hapus_data($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
@@ -87,6 +93,15 @@ class Playlist extends CI_Model
         $this->db->like('judul_lagu',$keyword);
         $this->db->or_like('penyanyi',$keyword);
         $this->db->or_like('album',$keyword);
+        return $this->db->get()->result();
+    }
+
+    public function daftargenre_cari($keyword){
+        $this->db->select('*');
+        $this->db->from('genre_music');
+        $this->db->like('genre',$keyword);
+        $this->db->or_like('thumbnail',$keyword);
+        $this->db->or_like('slug',$keyword);
         return $this->db->get()->result();
     }
 }

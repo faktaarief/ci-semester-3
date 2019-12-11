@@ -9,6 +9,9 @@
 <label>Nama Genre</label> <br>	
 	<input type="text" name="genre"> <br><br>
 
+<label>Nama Thumbnail</label> <br>	
+	<input type="text" name="thumbnail"> <br><br>
+
 <label>File Thumbnail</label> <br>
 	<input type="file" name="berkas"> <br><br>
 

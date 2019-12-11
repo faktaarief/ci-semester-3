@@ -6,6 +6,11 @@ class UploadController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('genre');
+        if($this->session->userdata('masuk_admin') != TRUE)
+        {
+            $url = base_url('login');
+            redirect($url);
+        }
     }
 	public function index() 
 		{
@@ -103,11 +108,65 @@ class UploadController extends CI_Controller
             }
         }
 
+        public function update_genre() 
+        {
+            $data = array(
+                'upload_path' => './assets/img/home/pop/', // folder lagu di simpan
+                'file_name' => $this->input->post('thumbnail'),
+                'allowed_types' => 'jpg', // ekstensi yang diizinkan
+                'overwrite' => true, // replace lagu yang sudah ada
+                'max_size' => 1024 // 1MB
+            );
+            
+            $this->load->library('upload', $data);
+    
+            $data = array(
+                'genre' => $this->input->post('genre'),
+                'thumbnail' => $this->input->post('thumbnail') . '.jpg',
+                'slug' => $this->input->post('slug')
+            );
+
+            $where = array(
+                'kd_genre' => $this->input->post('kd_genre')
+            );
+    
+            $this->playlist->update_genre($where, $data, 'genre_music');
+            
+            if(!$this->upload->do_upload('berkas'))
+            {
+                // $error = array('error' => $this->upload->display_errors());
+                // redirect('admin/dashboard/daftar-lagu');
+                redirect('admin/dashboard/daftar-genre');
+            } 
+            else
+            {
+                $msg = $this->session->set_flashdata('sukses', 'Genre Berhasil Diupdate!');
+                redirect('admin/dashboard/daftar-genre');
+            }
+        }
+
         public function hapus($id = null)
         {
-            $where = array('kd_lagu' => $id);
+            $where = array(
+                'kd_lagu' => $id,
+                'judul_lagu' => $this->input->post('judul_lagu')
+            );
+            
+            unlink('./assets/music'. '/' . str_replace(' ', '_', $where['judul_lagu']) . '.mp3');
             $this->playlist->hapus_data($where,'lagu');
             redirect('admin/dashboard/daftar-lagu');
+        }
+
+        public function hapus_genre($id = null)
+        {
+            $where = array(
+                'kd_genre' => $id,
+                'thumbnail' => $this->input->post('thumbnail')
+            );
+            unlink('./assets/img/home/pop'. '/' . str_replace(' ', '_', $where['thumbnail']));
+
+            $this->playlist->hapus_data($where,'genre_music');
+            redirect('admin/dashboard/daftar-genre');
         }
 
         public function cari() 
@@ -116,6 +175,14 @@ class UploadController extends CI_Controller
             $data['products']=$this->playlist->daftarlagu_cari($keyword);
 			$this->load->view('admin/home_admin');
             $this->load->view('daftarlagu-cari',$data);
+        }
+
+        public function cari_genre() 
+        {
+            $keyword = $this->input->post('keyword');
+            $data['products']=$this->playlist->daftargenre_cari($keyword);
+			$this->load->view('admin/home_admin');
+            $this->load->view('daftargenre-cari',$data);
         }
 	
     public function admin()
@@ -174,18 +241,18 @@ class UploadController extends CI_Controller
     {
         $data = array(
             'upload_path' => './assets/img/home/pop/', // folder lagu di simpan
-            'file_name' => $this->upload->data('file_name'),
-            'allowed_types' => 'jpg|jpeg|png', // ekstensi yang diizinkan
+            'file_name' => $this->input->post('thumbnail'),
+            'allowed_types' => 'jpg', // ekstensi yang diizinkan
             'overwrite' => true, // replace lagu yang sudah ada
             'max_size' => 1024 // 1MB
         );
         
         $this->load->library('upload', $data);
-        die($data['file_name']);
+        // die($data['file_name']);
         $todb = array(
             'tgl_buat' => time(),
             'genre' => $this->input->post('genre'),
-            'thumbnail' => $data['file_name'],
+            'thumbnail' => $data['file_name'] . '.jpg',
             'slug' => $this->input->post('slug')
         );
 

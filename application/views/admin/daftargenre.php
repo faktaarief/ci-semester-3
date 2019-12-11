@@ -20,7 +20,7 @@
     white-space: nowrap;
 }
 		</style>
-		<?php echo form_open('admin/dashboard/daftar-lagu/cari') ?>
+		<?php echo form_open('admin/dashboard/daftar-genre/cari') ?>
 			<input type="text" name="keyword" placeholder="search">
 			<input type="submit" name="search_submit" value="Cari">
 		<?php echo form_close() ?>
@@ -43,7 +43,10 @@
 				<td><?= $l->kd_genre; ?></td>
 				<td><?= $l->thumbnail; ?></td>
 				<td><?= $l->slug; ?></td>
-				<td><a href="<?= base_url('admin/dashboard/daftar-genre/edit').'/'.$l->kd_genre ?>">edit</a> | <a href="<?= base_url('admin/dashboard/daftar-lagu/hapus').'/'.$l->kd_lagu ?>">hapus</a></td>
+				<td><a href="<?= base_url('	admin/dashboard/daftar-genre/edit').'/'.$l->kd_genre ?>">edit</a> | 
+				<?php echo form_open('admin/dashboard/daftar-genre/hapus'. '/' . $l->kd_genre) ?>
+					<input type="hidden" name="thumbnail" value="<?= $l->thumbnail; ?>"> <input type="submit" value="hapus"></<input>
+				<?php echo form_close() ?></td>
 			</tr>
 			<?php } ?>
 		</tbody>
@@ -51,3 +54,4 @@
 		</div>
 </body>
 </html>
+

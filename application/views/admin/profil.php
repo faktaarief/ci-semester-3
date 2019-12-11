@@ -14,36 +14,60 @@
 	<div id="isiprofil">
 	<h1>Tinjauan Akun</h1>
 		<h2>Profil</h2>
+		<?php foreach ($profil as $p) { ?>
 			<h3>User</h3>
-				<p>Nama User</p>
+				<p><?= $p->nama; ?></p>
 					<br>
 					<hr color="#928E8E" align="left">
 					<br>
 		
 			<h3>Email</h3>
-				<p>nama email</p>
+				<p><?= $p->email; ?></p>
 					
 					<br>
 					<hr color="#928E8E" align="left"><br>
 
 			<h3>Tanggal Lahir</h3>
-				<p>tanggal</p>
+				<p><?= $p->tgl_lahir	; ?></p>
 					<br>
 					<hr color="#928E8E" align="left"><br>
 
 			<h3>Jenis Kelamin</h3>
-				<p>jk</p>
+				<p>
+					<?php  
+						if ($p->jk == 'L') {
+							echo "Laki-Laki";
+						} else 
+							echo "Perempuan";
+					?>
+				</p>
 					<br>
 					<hr color="#928E8E" align="left"><br>
-
-
-			<div id="editprofil">
-						<a href="#">Edit Profil</a>
+					
+					<div id="editprofil">
+						<?php 
+							if ($this->session->userdata('masuk_admin') == !FALSE) {
+								echo "<a href=\"" . base_url('dashboard/profil/edit' . '/' . $p->kd_admin) . "\">Edit Profil</a>";
+							} else if ($this->session->userdata('masuk') == !FALSE) {
+								echo "<a href=\"" . base_url('dashboard/profil/edit' . '/' . $p->kd_user) . "\">Edit Profil</a>";						
+							}
+						?>
+			<?php } ?>
 		</div>
 		
 		<h2>Paketmu</h2>
 			<!--Kalau premium, pake gambar premium. kalau free, pake gambar free-->
-			<img src="<?=base_url('assets/img/home/premium.jpg');?>" width="82%" height="200">
+			<img src="
+			
+			<?php
+				if ($p->level == 1) {
+					echo base_url('assets/img/home/premium.jpg');
+				} else if ($p->level == 2) {
+					echo base_url('assets/img/home/free.jpg');
+				}
+			?>
+			
+			"width="82%" height="200">
 		<h2>Tema Spotify Hari Ini</h2>
 			<h4>Masa Lalu</h4>
 		<br>

@@ -13,6 +13,11 @@ class Welcomespotify extends CI_Controller {
             $url = base_url('login');
             redirect($url);
         }
+        // else if($this->session->userdata('masuk_admin') != TRUE)
+        // {
+        //     $url = base_url('login');
+        //     redirect($url);
+        // }
     }
 
 
@@ -21,6 +26,10 @@ public function index() {
         {
             redirect(base_url('dashboard'));
         }
+    // else if($this->session->userdata('masuk_admin') != FALSE)
+    //     {
+    //         redirect(base_url('admin/dashboard'));
+    //     }
         else
         {
             $this->load->view('v_header');
@@ -111,13 +120,76 @@ public function beranda(){
             $data['products']=$this->playlist->get_product_keyword($keyword);
 			$this->load->view('sidebar_depan');
             $this->load->view('playlist-cari',$data);
-		}
+        }
+        
 	public function profil() 
 		{
-			$this->load->view('head');
-			$this->load->view('admin/profil');
+            $akun = $this->session->userdata('session_nama');
+            
+            $where = array(
+                'nama' => $akun  
+            );
+
+            // die($where['nama']);
+            if ($this->session->userdata('masuk_admin') == !FALSE) {
+                $data['profil'] = $this->profil->show_profil_admin($where);
+            } else if ($this->session->userdata('masuk') == !FALSE) {
+                $data['profil'] = $this->profil->show_profil($where);
+            }
+
+            $this->load->view('head');
+			$this->load->view('admin/profil', $data);
 			$this->load->view('bawahan');
-		}
-	
+        }
+
+    public function edit_profil($id = null)
+    {            
+        // $where = array(
+        //     'kd_user' => $id  
+        // );
+
+        if ($this->session->userdata('masuk_admin') == !FALSE) {
+            $where = array(
+                'kd_admin' => $id  
+            );
+        } else if ($this->session->userdata('masuk') == !FALSE) {
+            $where = array(
+                'kd_user' => $id  
+            );            
+        }
+
+        if ($this->session->userdata('masuk_admin') == !FALSE) {
+            $data['profil'] = $this->profil->show_profil_admin($where);
+        } else if ($this->session->userdata('masuk') == !FALSE) {
+            $data['profil'] = $this->profil->show_profil($where);            
+        }
+
+
+        $this->load->view('head');
+		$this->load->view('admin/edit_profil', $data);
+		$this->load->view('bawahan');
+    }
+
+    public function update_profil()
+	{
+        $data = array(
+            'nama' => $this->input->post('nama'),
+            'email' => $this->input->post('email'),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'jk' => $this->input->post('jk')
+        );
+
+        
+        $where = array(
+            'kd_user' => $this->input->post('kd_user')
+        );
+        
+        $this->profil->update_profil($where, $data, 'users');
+        $this->session->set_userdata('session_nama', $data['nama']);
+        $msg = $this->session->set_flashdata('sukses', 'Profil Berhasil Diupdate!');
+        redirect('dashboard/profil');
+            
+        
+    }
 }
 ?>

@@ -59,6 +59,11 @@ $route['login'] = 'LoginController/index';
 $route['login/auth'] = 'LoginController/auth';
 // $route['dashboard'] = 'PagesController/index';
 $route['dashboard'] = 'Welcomespotify/homedepan';
+$route['dashboard/profil'] = 'Welcomespotify/profil';
+$route['dashboard/profil/edit/(:num)'] = 'Welcomespotify/edit_profil/$1';
+$route['dashboard/profil/edit/store'] = 'Welcomespotify/update_profil/';
+
+
 $route['admin/dashboard'] = 'UploadController/index';
 $route['admin/dashboard/upload'] = 'UploadController/admin';
 $route['admin/dashboard/store'] = 'UploadController/store';
@@ -68,9 +73,12 @@ $route['admin/dashboard/daftar-lagu/edit/(:num)'] = 'UploadController/edit/$1';
 $route['admin/dashboard/daftar-lagu/hapus/(:num)'] = 'UploadController/hapus/$1';
 
 $route['admin/dashboard/daftar-genre'] = 'UploadController/daftargenre';
+$route['admin/dashboard/daftar-genre/cari'] = 'UploadController/cari_genre';
 $route['admin/dashboard/tambah-genre'] = 'UploadController/tambahgenre';
 $route['admin/dashboard/store-genre'] = 'UploadController/storegenre';
 $route['admin/dashboard/daftar-genre/edit/(:num)'] = 'UploadController/edit_genre/$1';
+$route['admin/dashboard/daftar-genre/edit/store'] = 'UploadController/update_genre';
+$route['admin/dashboard/daftar-genre/hapus/(:num)'] = 'UploadController/hapus_genre/$1';
 
 $route['dashboard/premium'] = 'PagesController/pengguna_premium';
 $route['dashboard/free'] = 'PagesController/pengguna_gratis';
@@ -80,3 +88,5 @@ $route['playlist/cari'] = 'Welcomespotify/cari';
 $route['genres'] = 'Welcomespotify/genres';
 // $route['genres'] = 'Welcomespotify/genres_playlist';
 $route['genres/(:any)'] = 'Welcomespotify/genres_playlist';
+
+
