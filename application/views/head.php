@@ -12,9 +12,9 @@
 		<img src="<?=base_url('assets/img/logoblogg.png');?>" width="200" height="70">
 		
 				<ul id="menu">
-					<li><a href="">Bantuan</a></li>
-					<li><a href="">Kategori</a></li>
-					<li><a href="">Download</a></li>
+					<li><a href="<?= base_url('logout');?>">Logout</a></li>
+				
+					<li><a href="">DownloadApps</a></li>
 				</div>
 				</ul>
 		</ul>	

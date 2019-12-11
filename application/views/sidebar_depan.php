@@ -20,13 +20,14 @@
 				</li>
 					<br>
        			<li><a href="<?= base_url('dashboard'); ?>">Home</a></li>
-       			<li><a href="#">Your Library</a></li>
+						<li><a href="">Install App</a></li>	
+					<br>
+					<br>
+       			
 				</ul>	
 				<div id="sidebarbottom">
-					<a href="">Install App</a>
-					<br>
-					<br>
-					<a href="">Anonymous</a>	
+
+					<a href="<?= base_url('dashboard/profil');?>">MY ACCOUNT<br>(<?= ucwords($this->session->userdata('session_nama')); ?>)</a>
        		</div>
 		</div>
 	</div>

@@ -10,10 +10,11 @@
 	<a href="<?= base_url('UploadController/admin');?>">Tambah Lagu</a>
 </div>
 
-	<h1>Daftar Lagu</h1>
-	<?= $this->session->flashdata('sukses'); ?>
+	
 	</div>
 	<div id="daftar">
+			<h1>Daftar Lagu</h1>
+			<?= $this->session->flashdata('sukses'); ?>
 		<style>
 		table {
     display: block;
@@ -55,7 +56,7 @@
 					</audio>
 				</td>
 				<?php echo form_open('admin/dashboard/daftar-lagu/hapus'. '/' . $l->kd_lagu) ?>
-					<td><a href="<?= base_url('admin/dashboard/daftar-lagu/edit').'/'.$l->kd_lagu ?>">edit</a> | <input type="hidden" name="judul_lagu" value="<?= $l->judul_lagu; ?>"> <input type="submit" value="hapus"></td>
+					<td><a href="<?= base_url('admin/dashboard/daftar-lagu/edit').'/'.$l->kd_lagu ?>">Edit</a> | <input type="hidden" name="judul_lagu" value="<?= $l->judul_lagu; ?>"> <input class="del" type="submit" value="Hapus"></td>
 				<?php echo form_close() ?>
 			</tr>
 			<?php } ?>
