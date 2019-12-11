@@ -579,6 +579,20 @@ table tr:hover td {
 	overflow:hidden;
 	float:left;
 }
+#tabellagu
+{
+	padding: 10px;
+}
+
+#daftarcuy table {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666;
+	text-shadow: 1px 1px 0px #fff;
+	background: #eaebec;
+	border: #ccc 1px solid;
+	width: 884px;
+  }
+  
 
 table {
 	font-family: Arial, Helvetica, sans-serif;
@@ -586,15 +600,17 @@ table {
 	text-shadow: 1px 1px 0px #fff;
 	background: #eaebec;
 	border: #ccc 1px solid;
+	width: 1100px;
   }
   
   table th {
 	padding: 15px 35px;
 	border-left:1px solid #e0e0e0;
 	border-bottom: 1px solid #e0e0e0;
-	background: #ededed;
+	background:#B8B7B7;
+	  color: black;
   }
-  
+  	
   table th:first-child{  
 	border-left:none;  
   }
@@ -602,6 +618,7 @@ table {
   table tr {
 	text-align: center;
 	padding-left: 20px;
+	  
   }
   
   table td:first-child {
@@ -615,7 +632,8 @@ table {
 	border-top: 1px solid #ffffff;
 	border-bottom: 1px solid #e0e0e0;
 	border-left: 1px solid #e0e0e0;
-  
+  	margin-left: 10px;
+	  color: #1A1A1A
   }
   
   table tr:last-child td {
@@ -745,12 +763,11 @@ table {
 
 #forminput input
 {
-	padding:5px;
+	padding:7px;
 	margin-right: 180px;
 	margin-bottom: 10px;
 	width: 400px;
 	float: right;	
-	color:#494949;
 	font-size: 13px;
 }
 
@@ -763,4 +780,91 @@ table {
 	float: right;	
 	color:#494949;
 	font-size: 13px;
+}
+
+/*Form search*/
+
+.search {
+    padding:9px;
+    background:#BFBDBD;
+    border:0px solid ;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.search:hover{
+    padding:9px;
+    background:white;
+	color: #272727;
+    border:0px solid ;
+}
+
+.submit {
+    
+    padding:7px 15px;
+    left:-8px;
+    border:2px solid #53bd84;
+    background-color:#28a745;
+    color:white;
+	font-weight: bold;
+	float: right;
+}
+
+.searchlagu {
+    padding:8px 30px;
+    background:#BFBDBD;
+    border:0px solid ;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.searchlagu:hover{
+	padding:7px 15px;
+    background:white;
+	color: #272727;
+    border:0px solid ;
+}
+
+.carilagu:hover{
+	padding:7px 15px;
+    background:white;
+	color: #272727;
+    border:0px solid ;
+}
+
+.carilagu {
+    
+    padding:7px 15px;
+    left:-8px;
+    border:2px solid #53bd84;
+    background-color:#28a745;
+    color:white;
+	font-weight: bold;
+}
+.submit:hover  {
+    background-color:#fafafa;
+    color:#252424;
+}
+.upload {
+    background:#D4D4D4;
+    border:0px solid ;
+	margin-bottom: 10px;
+}
+
+.upload:hover {
+    background:white;
+    border:0px solid ;
+	margin-bottom: 10px;
+}
+.file {
+    
+    
+    border:1px solid #53bd84;
+    background-color:#28a745;
+    color:white;
+	font-weight: bold;
+}
+.file:hover  {
+    background-color:#D4D4D4;
+    color:#252424;
 }
