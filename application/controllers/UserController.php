@@ -9,19 +9,22 @@ class UserController extends CI_Controller {
     function store()
     {
         $data = array(
-            'email' => $this->input->post('email'),
+            'email' => strtolower($this->input->post('email')),
             'password' => md5($this->input->post('password')),
-            'nama' => $this->input->post('nama'),
+            'nama' => ucwords($this->input->post('nama')),
             'tgl_lahir' => $this->input->post('tgl_lahir'),
             'jk' => $this->input->post('jk'),
-            'level' => '2'
+            'level' => '2',
+            'status' => '0'
         );
+        
         
         $tes = $this->db->select('users.*');
         // die($tes);
         $this->db->from('users');
         $this->db->join('status_users', 'status_users.kd_user = users.kd_user');
         $this->db->insert('users', $data);
+        redirect('dashboard');
     }
 
 }

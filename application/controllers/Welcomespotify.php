@@ -65,9 +65,10 @@ public function beranda(){
 }
 		public function homedepan() 
 		{
+            $data['playlist'] = $this->playlist->show_playlist()->result();
     		$this->load->view('sidebar_depan');
 			$this->load->view('head_depan');
-			$this->load->view('isi_depan');
+			$this->load->view('isi_depan', $data);
 			$this->load->view('footer_depan');
 		}
 	public function kepala() 
@@ -92,7 +93,50 @@ public function beranda(){
 			$this->load->view('playlist', $data);
         }
 
+        // public function edit($id = null) 
+        // {
+        //     $where = array(
+        //         'kd_lagu' => $id
+        //     );
+
+		//     $this->load->view('admin/home_admin');
+        //     $data['lagu'] = $this->playlist->edit_daftar_genre($where, 'lagu')->result();
+        //     $data['genres'] = $this->genre->show_genre()->result();
+        //     $data['genre'] = $this->playlist->edit_daftar_genre($where, 'lagu')->result();
+        //     $this->load->view('edit_lagu', $data);
+        // }
         
+    public function playlist() 
+    {
+        $slug = $this->input->post('playlist');
+        $kd_playlist = $this->input->post('kd_playlist');
+        // $kd_genre = 35;
+
+        $where = array(
+                     'kd_playlist' => $id
+                );
+
+        // echo $slug;
+
+        // if(current_url() == base_url('playlist' . '/' . $slug)) {
+        //     $data['lagu'] = $this->playlist->genre_view($kd_genre);
+        //     $this->load->view('sidebar_depan');
+        //     $this->load->view('playlist', $data);
+        // } 
+        if(current_url() == base_url('playlist' . '/' . $slug)) {
+            $data['lagu'] = $this->playlist->playlist_view_join($where, 'lagu')->result();
+            $this->load->view('sidebar_depan');
+            $this->load->view('playlist', $data);
+        } 
+        
+        // else if(current_url() == base_url('genres/dangdut')) {
+        //     $data['lagu'] = $this->playlist->genre_dangdut();
+        //     $this->load->view('sidebar_depan');
+        //     $this->load->view('playlist', $data);
+        // }
+              
+    }
+
     public function genres_playlist() 
     {
         $slug = $this->input->post('genre');

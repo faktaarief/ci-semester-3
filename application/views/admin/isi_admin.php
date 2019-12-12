@@ -23,7 +23,7 @@
 						<h1>Jalankan Musik di Pemutar WEB</h1>
 						<h4>Spotify Terikini</h4>
 			<br>
-						<a href="<?= base_url('Welcomespotify/homedepan');?>">Buka Pemutar Web</a>	
+						<a href="<?= base_url('dashboard');?>">Buka Pemutar Web</a>	
 						<!--a href="http://localhost/ci-semester-3/Welcomespotify/homedepan">Buka Pemutar Web</a-->
 					</center>
 					</div>

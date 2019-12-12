@@ -12,6 +12,11 @@ class Playlist extends CI_Model
         return $this->db->get('genre_music');
     }
 
+    function show_playlist() 
+    {
+        return $this->db->get('playlist');
+    }
+
     public function joinTable() 
     {
         $this->db->select('lagu.*, genre_music.kd_genre, genre_music.genre');
@@ -69,6 +74,23 @@ class Playlist extends CI_Model
         $this->db->from('lagu');
         $this->db->where('kd_genre', $kd_genre);
         return $this->db->get()->result();
+    }
+
+    function playlist_view($kd_playlist) 
+    {
+        $this->db->select('*');
+        $this->db->from('playlist');
+        $this->db->where('kd_playlist', $kd_playlist);
+        return $this->db->get()->result();
+    }
+
+    public function playlist_view_join($where, $table) 
+    {
+        $this->db->select('lagu.*, playlist.kd_playlist, playlist.playlist');
+        $this->db->join('playlist', 'lagu.kd_genre = playlist.kd_playlist');
+        $this->db->from('lagu');
+        $this->db->where($where);
+        return $this->db->get();
     }
 
     function genre_dangdut() 

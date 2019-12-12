@@ -274,4 +274,113 @@ class UploadController extends CI_Controller
 
     }
 
+    public function daftaruser()
+    {
+        $data['users'] = $this->user->ambil_user()->result();
+        // $data['lagu'] = $this->playlist->joinTable()->result();
+        $this->load->view('admin/home_admin');
+        $this->load->view('admin/daftaruser', $data);
+    }
+
+    public function edit_user($id = null) 
+    {
+        $where = array(
+            'kd_user' => $id
+        );
+
+	    $this->load->view('admin/home_admin');
+        $data['users'] = $this->user->show_edit_user($where);
+        $this->load->view('edit_user', $data);
+    }
+
+    public function update_user()
+	{
+        $data = array(
+            'nama' => ucwords($this->input->post('nama')),
+            'email' => strtolower($this->input->post('email')),
+            'password' => md5($this->input->post('password')),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'jk' => $this->input->post('jk'),
+            'level' => $this->input->post('level'),
+            'status' => $this->input->post('status')
+        );
+
+        
+        $where = array(
+            'kd_user' => $this->input->post('kd_user')
+        );
+        
+        // die($where['kd_user']);  
+
+        $this->user->update_user($where, $data, 'users');
+        // $this->session->set_userdata('session_nama', $data['nama']);
+        $msg = $this->session->set_flashdata('sukses', 'User Berhasil Diupdate!');
+        redirect('admin/dashboard/daftar-user');  
+    }
+
+    public function cari_user() 
+    {
+        $keyword = $this->input->post('keyword');
+        $data['users']=$this->user->daftaruser_cari($keyword);
+		$this->load->view('admin/home_admin');
+        $this->load->view('daftaruser-cari',$data);
+    }
+
+    public function tambahuser()
+    {
+        $this->load->view('admin/home_admin');
+        $this->load->view('admin/tambah_user');
+    }
+
+    public function storeuser()
+    {
+        // $data = array(
+        //     'upload_path' => './assets/img/home/pop/', // folder lagu di simpan
+        //     'file_name' => $this->input->post('thumbnail'),
+        //     'allowed_types' => 'jpg', // ekstensi yang diizinkan
+        //     'overwrite' => true, // replace lagu yang sudah ada
+        //     'max_size' => 1024 // 1MB
+        // );
+        
+        // $this->load->library('upload', $data);
+
+        $todb = array(
+            'nama' => ucwords($this->input->post('nama')),
+            'password' => md5($this->input->post('password')),
+            'email' => strtolower($this->input->post('email')),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'jk' => $this->input->post('jk'),
+            'level' => $this->input->post('level'),
+            'status' => $this->input->post('status')
+        );
+
+        $this->db->insert('users', $todb);
+        redirect('admin/dashboard/daftar-user');  
+
+       
+
+        // if(!$this->upload->do_upload('berkas'))
+        // {
+        //     $error = array('error' => $this->upload->display_errors());
+		// 	$this->load->view('admin/home_admin');
+        //     $this->load->view('admin/isi_genre', $error);;
+        // } 
+        // else
+        // {
+        //     $msg = $this->session->set_flashdata('sukses', 'Lagu Berhasil Ditambahkan!');
+        //     redirect('admin/dashboard/daftar-genre');
+        // }
+    }
+
+    public function hapus_user($id = null)
+    {
+        $where = array(
+            'kd_user' => $id
+        );
+        
+        // unlink('./assets/img/home/pop'. '/' . str_replace(' ', '_', $where['thumbnail']));
+
+        $this->user->hapus_data($where,'users');
+        redirect('admin/dashboard/daftar-user');
+    }
 }

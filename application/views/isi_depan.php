@@ -1,4 +1,9 @@
 <div id="content">
+<?php if($this->session->userdata('status') == 'not-verify') { ?>
+	<div style="background-color: yellow; color: black; display: inline-block; padding: 10px;">
+		<p>Please active your account. Check email from link activation!</p>
+	</div>
+<?php } ?>
 				<h2>Popular Playlist</h2>
 				<br>
 				<div id="galeri">

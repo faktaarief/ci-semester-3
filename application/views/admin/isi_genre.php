@@ -13,8 +13,10 @@
 		<input type="text" name="thumbnail"> <br><br>
 		
 		<h2>File Thumbnail</h2> <br>
-			<input type="file" name="berkas"> <br><br>
-
+		<input type="file" name="berkas"> <br><br>
+		
+		<h2>Slug</h2> <br>	
+		<input type="text" name="slug"> <br><br>
 
 
 		<br><br><input type="submit" value="Tambah">

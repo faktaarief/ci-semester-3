@@ -36,10 +36,14 @@
 	<div id="alert" style="display:none; background-color: yellow; padding:4px;">Upgrade your Account to Premium for Full Version.</div>
 	<?php foreach($lagu as $l) { ?>
 		<div id="listlagu">
+			<h4><?= $l->playlist; ?></h4>
 			<h4><?= $l->judul_lagu; ?></h4>
 			<p><?= $l->penyanyi; ?> - <?= $l->judul_lagu; ?></p>
 			<?php if($this->session->userdata('akses') == 1) { ?>
-			<!-- <h1>SEMPAK</h1> -->
+			<audio id="aud" controls="controls">
+										<source src="<?= base_url('assets/music/'.str_replace(' ', '_', $l->judul_lagu).'.mp3'); ?>" type="audio/mp3" />
+									<?php } ?>
+			<?php if($this->session->userdata('akses_admin') == 1) { ?>
 			<audio id="aud" controls="controls">
 										<source src="<?= base_url('assets/music/'.str_replace(' ', '_', $l->judul_lagu).'.mp3'); ?>" type="audio/mp3" />
 									<?php } ?>

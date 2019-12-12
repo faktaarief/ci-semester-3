@@ -59,12 +59,14 @@ $route['login'] = 'LoginController/index';
 $route['login/auth'] = 'LoginController/auth';
 // $route['dashboard'] = 'PagesController/index';
 $route['dashboard'] = 'Welcomespotify/homedepan';
+$route['playlist/(:any)'] = 'Welcomespotify/playlist';
 $route['dashboard/profil'] = 'Welcomespotify/profil';
 $route['dashboard/profil/edit/(:num)'] = 'Welcomespotify/edit_profil/$1';
 $route['dashboard/profil/edit/store'] = 'Welcomespotify/update_profil/';
 
 
 $route['admin/dashboard'] = 'UploadController/index';
+$route['admin/dashboard/home'] = 'UploadController/home';
 $route['admin/dashboard/upload'] = 'UploadController/admin';
 $route['admin/dashboard/store'] = 'UploadController/store';
 $route['admin/dashboard/daftar-lagu'] = 'UploadController/daftar';
@@ -79,6 +81,15 @@ $route['admin/dashboard/store-genre'] = 'UploadController/storegenre';
 $route['admin/dashboard/daftar-genre/edit/(:num)'] = 'UploadController/edit_genre/$1';
 $route['admin/dashboard/daftar-genre/edit/store'] = 'UploadController/update_genre';
 $route['admin/dashboard/daftar-genre/hapus/(:num)'] = 'UploadController/hapus_genre/$1';
+
+$route['admin/dashboard/daftar-user'] = 'UploadController/daftaruser';
+$route['admin/dashboard/daftar-user/cari'] = 'UploadController/cari_user';
+$route['admin/dashboard/tambah-user'] = 'UploadController/tambahuser';
+$route['admin/dashboard/store-user'] = 'UploadController/storeuser';
+$route['admin/dashboard/daftar-user/edit/(:num)'] = 'UploadController/edit_user/$1';
+$route['admin/dashboard/daftar-user/edit/store'] = 'UploadController/update_user';
+$route['admin/dashboard/daftar-user/hapus/(:num)'] = 'UploadController/hapus_user/$1';
+
 
 $route['dashboard/premium'] = 'PagesController/pengguna_premium';
 $route['dashboard/free'] = 'PagesController/pengguna_gratis';

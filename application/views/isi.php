@@ -7,7 +7,7 @@
 					<div id="judul">
 						<h1>Mencari Musik?</h1>
 						<h4>Mulai Mendengarkan rilis terbaru</h4>
-						<a href="<?= base_url('Welcomespotify/homedepan');?>">Buka Pemutar Web</a>	
+						<a href="<?= base_url('dashboard');?>">Buka Pemutar Web</a>	
 						<!--a href="http://localhost/ci-semester-3/Welcomespotify/homedepan">Buka Pemutar Web</a-->
 					</center>
 					</div>
@@ -15,7 +15,7 @@
 					<div id="judul">
 						<h1>Kelola Spotify</h1>
 						<h4>Update Spotify agar tidak ketinggalan</h4>
-						<a href="<?= base_url('UploadController/home');?>">Kelola Spotify</a>	
+						<a href="<?= base_url('admin/dashboard/home');?>">Kelola Spotify</a>	
 						<!--a href="http://localhost/ci-semester-3/Welcomespotify/homedepan">Buka Pemutar Web</a-->
 					</center>
 					</div>
