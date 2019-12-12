@@ -9,10 +9,11 @@
 		<div id="addpl">
 	<a href="<?= base_url('admin/dashboard/tambah-genre');?>">Tambah Playlist</a>
 </div>
-	<h1>Daftar Lagu</h1>
-	<?= $this->session->flashdata('sukses'); ?>
+
 	</div>
 	<div id="daftarcuy">
+			<h1>Daftar Lagu</h1>
+	<?= $this->session->flashdata('sukses'); ?>
 		<style>
 		table {
 			display: block;
@@ -33,7 +34,7 @@
 				<th>Kode Genre</th>
 				<th>Thumbnail</th>
 				<th>Slug</th>
-				<th>Aksi</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -44,9 +45,10 @@
 				<td><?= $l->kd_genre; ?></td>
 				<td><?= $l->thumbnail; ?></td>
 				<td><?= $l->slug; ?></td>
-				<td><a href="<?= base_url('	admin/dashboard/daftar-genre/edit').'/'.$l->kd_genre ?>">edit</a> | 
+				<td><a href="<?= base_url('	admin/dashboard/daftar-genre/edit').'/'.$l->kd_genre ?>">Edit</a> | 
 				<?php echo form_open('admin/dashboard/daftar-genre/hapus'. '/' . $l->kd_genre) ?>
-					<input type="hidden" name="thumbnail" value="<?= $l->thumbnail; ?>"> <input type="submit" value="hapus"></<input>
+					<input type="hidden" name="thumbnail" value="<?= $l->thumbnail; ?>">
+					<input class="del" type="submit" value="Hapus"></<input>
 				<?php echo form_close() ?></td>
 			</tr>
 			<?php } ?>

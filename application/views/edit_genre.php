@@ -5,8 +5,9 @@
         <link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
 </head>
 <body>
-	<div id="header">
-	<h1>Edit Lagu</h1>
+	<div id="headupload">
+		<h1>Dasbor Admin: Edit Lagu</h1>
+			<h2>Kelola Spotify, Update lagumu hari ini</h2>
 	</div>
 	<div id="daftar">
 	<table cellspacing='0'>
@@ -22,23 +23,23 @@
             </tr>
             <tr>
                 <th>Nama Genre</th>
-				<td><input type="text" value="<?= $l->genre; ?>" name="genre"></td>                
+				<td><input class="upload" type="text" value="<?= $l->genre; ?>" name="genre"></td>                
             </tr>
             <tr>
                 <th>Kode Genre</th>
-				<td><input type="text" value="<?= $l->kd_genre; ?>" name="kd_genre"></td>
+				<td><input class="upload" type="text" value="<?= $l->kd_genre; ?>" name="kd_genre"></td>
             </tr>
             <tr>
                 <th>Thumbnail</th>
-				<td><input type="text" value="<?= trim($l->thumbnail, '.jpg'); ?>" name="thumbnail"></td>
+				<td><input class="upload" type="text" value="<?= trim($l->thumbnail, '.jpg'); ?>" name="thumbnail"></td>
             </tr>
             <tr>
                 <th>File Thumbnail</th>
-	            <td><input type="file" name="berkas"></td>
+	            <td><input class="telusuri" type="file" name="berkas"></td>
             </tr>
             <tr>
                 <th>Slug</th>
-				<td><input type="text" value="<?= $l->slug; ?>" name="slug"></td>
+				<td><input class="upload" type="text" value="<?= $l->slug; ?>" name="slug"></td>
             </tr>
             <tr>
                 <td style="text-align: center;" colspan="2"><input type="submit" value="update"> | <a href="javascript:history.go(-1)">kembali</></td>

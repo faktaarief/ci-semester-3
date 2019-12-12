@@ -78,7 +78,7 @@
 				</td>
 				<td><a href="<?= base_url('	admin/dashboard/daftar-user/edit').'/'.$u->kd_user ?>">edit</a> | 
 				<?php echo form_open('admin/dashboard/daftar-user/hapus'. '/' . $u->kd_user) ?>
-					<input type="hidden" name="thumbnail" value="<?= $u->kd_user; ?>"> <input type="submit" value="hapus"></<input>
+					<input type="hidden" name="thumbnail" value="<?= $u->kd_user; ?>"> <input type="submit" value="hapus" class="del"></<input>
 				<?php echo form_close() ?></td>
 			</tr>
 			<?php } ?>

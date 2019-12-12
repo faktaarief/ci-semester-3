@@ -5,8 +5,9 @@
         <link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
 </head>
 <body>
-	<div id="header">
-	<h1>Edit Lagu</h1>
+	<div id="headupload">
+		<h1>Dasbor Admin: Edit Lagu</h1>
+			<h2>Kelola Spotify, Update lagumu hari ini</h2>
 	</div>
 	<div id="daftar">
 	<table cellspacing='0'>
@@ -22,15 +23,15 @@
             </tr>
             <tr>
                 <th>Judul Lagu</th>
-				<td><input type="text" value="<?= $l->judul_lagu; ?>" name="judul_lagu"></td>                
+				<td><input class="upload" type="text" value="<?= $l->judul_lagu; ?>" name="judul_lagu"></td>                
             </tr>
             <tr>
                 <th>Artis</th>
-				<td><input type="text" value="<?= $l->penyanyi; ?>" name="penyanyi"></td>
+				<td><input class="upload" type="text" value="<?= $l->penyanyi; ?>" name="penyanyi"></td>
             </tr>
             <tr>
                 <th>Genre</th>
-				<td><select name="kd_genre">
+				<td><select class="upload" name="kd_genre">
                             <option selected hidden value=<?= $l->kd_genre ?>><?= $l->genre ?></option>
                             <?php foreach ($genres as $g) { ?>
                                 <option value=<?= $g->kd_genre ?>><?= $g->genre ?></option>
@@ -43,15 +44,15 @@
             </tr>
             <tr>
                 <th>Album</th>
-				<td><input type="text" value="<?= $l->album; ?>" name="album"></td>
+				<td><input class="upload" type="text" value="<?= $l->album; ?>" name="album"></td>
             </tr>
             <tr>
                 <th>Dirilis</th>
-				<td><input type="text" value="<?= $l->dirilis; ?>" name="dirilis"></td>
+				<td><input class="upload" type="text" value="<?= $l->dirilis; ?>" name="dirilis"></td>
             </tr>
             <tr>
                 <th>File</th>
-	            <td><input type="file" name="berkas"></td>
+	            <td><input class="telusuri" type="file" name="berkas"></td>
             </tr>
             <tr>
                 <td style="text-align: center;" colspan="2"><input type="submit" value="update"> | <a href="#">kembali</></td>

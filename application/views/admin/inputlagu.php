@@ -25,13 +25,13 @@
 					<hr color="#928E8E" align="left">
 					<br>
 		<h2>Input File</h2><br>
-			<input class="file" type="file" name="berkas"> <br><br>
+			<input class="telusuri" type="file" name="berkas"> <br><br>
 					<hr color="#928E8E" align="left">
 					<br>
 		<h2>Genre</h2><br>
 			<select name="kd_genre">
 				<?php foreach($genres as $g) { ?>
-				<option value=<?= $g->kd_genre ?>><?= $g->genre ?></option>
+				<option class="genre" value=<?= $g->kd_genre ?>><?= $g->genre ?></option>
 				<?php } ?>
 			</select> 
 <center>

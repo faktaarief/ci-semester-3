@@ -17,12 +17,9 @@
 				<li><a href="<?= base_url('logout');?>">Logout</a></li>
 				<br><br>
 				
-				<li><h4 style="color: black; padding: 7px; background-color: white; font-weight:bold;">Lain-Lain</h4></li>				   
-       			<li><a href="#">Permintaan User</a></li>
 				</ul>	
-				<div id="sidebarbottom">
-					<br>
-					<a href="<?= base_url('Welcomespotify/profil');?>">Akun Profil</a>	
+			<div id="sidebarbottom">
+				<li><a href="<?= base_url('dashboard/profil');?>">MY ACCOUNT<br>(<?= ucwords($this->session->userdata('session_nama')); ?>)</a></li>
        		</div>
 		</div>
 	
