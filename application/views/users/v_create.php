@@ -88,7 +88,14 @@
 
                 <!-- start create account form  -->
                 <form class="pt-3" action="<?= base_url(); ?>create-account/store" method="POST">
-
+                <?php if($this->session->flashdata('gagal')) { ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $this->session->flashdata('gagal'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <?php } ?>
                     <!-- start input email  -->
                     <div class="form-group mx-auto">
                         <input type="email" id="email" name="email" class="form-control" style="height: 50px;" required>
@@ -147,7 +154,7 @@
 
                     <!-- start captcha & submit  -->
                     <center>
-                        <div class="g-recaptcha mb-4" data-sitekey="6Lf5ssAUAAAAAL4DYNdY33t1snjiIpKqVRFnYcO8"></div>
+                        <!-- <div class="g-recaptcha mb-4" data-sitekey="6Lf5ssAUAAAAAL4DYNdY33t1snjiIpKqVRFnYcO8"></div> -->
                         <button type="submit" class="btn btn-primary mb-2">CREATE</button>
                     </center>
                     <!-- end captcha & submit  -->
@@ -192,11 +199,21 @@
             email.removeClass('is-valid').addClass('is-invalid');
             email.siblings(".invalid-feedback");
         } 
-        else 
-        {
-            email.removeClass('is-invalid').addClass('is-valid');
-        }
+        // else 
+        // {
+        //     email.removeClass('is-invalid').addClass('is-valid');
+        // }
     });
+
+
+
+
+ 
+    
+
+
+
+
 
 
     $( "#konfirmasi_email" ).change(function() 
@@ -254,3 +271,4 @@
         });
 </script>
 </html>
+

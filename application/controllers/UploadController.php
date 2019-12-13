@@ -64,6 +64,7 @@ class UploadController extends CI_Controller
 
 		    $this->load->view('admin/home_admin');
             $data['lagu'] = $this->playlist->edit_daftar_genre($where, 'lagu')->result();
+            $data['uploader'] = $this->playlist->joinTable()->result();
             $data['genres'] = $this->genre->show_genre()->result();
             $data['genre'] = $this->playlist->edit_daftar_genre($where, 'lagu')->result();
             $this->load->view('edit_lagu', $data);
@@ -187,8 +188,10 @@ class UploadController extends CI_Controller
 	
     public function admin()
     {
+        // die();
 		$this->load->view('admin/home_admin');
         $genre['genres'] = $this->genre->show_genre()->result();
+        $genre['lagu'] = $this->user->ambil_admin()->result();
         $this->load->view('admin/inputlagu', $genre);
     }
 
@@ -200,6 +203,8 @@ class UploadController extends CI_Controller
 
     public function store()
     {
+
+        
         $data = array(
             'upload_path' => './assets/music/', // folder lagu di simpan
             'file_name' => $this->input->post('judul_lagu'),
@@ -209,6 +214,7 @@ class UploadController extends CI_Controller
         );
         
         $this->load->library('upload', $data);
+        // $kd_admin = $this->input->post('kd_admin');
         
         $todb = array(
             'judul_lagu' => $this->input->post('judul_lagu'),
@@ -216,9 +222,12 @@ class UploadController extends CI_Controller
             'kd_genre' => $this->input->post('kd_genre'),
             'album' => $this->input->post('album'),
             'dirilis' => $this->input->post('dirilis'),
+            'kd_admin' => $this->session->userdata('session_id'),
             'tgl_upload' => time()
         );
 
+        // die($todb['kd_admin']);
+        
         $this->db->insert('lagu', $todb);
        
 
@@ -382,5 +391,113 @@ class UploadController extends CI_Controller
 
         $this->user->hapus_data($where,'users');
         redirect('admin/dashboard/daftar-user');
+    }
+
+    public function daftaradmin()
+    {
+        $data['users'] = $this->user->ambil_admin()->result();
+        // $data['lagu'] = $this->playlist->joinTable()->result();
+        $this->load->view('admin/home_admin');
+        $this->load->view('admin/daftaradmin', $data);
+    }
+
+    public function edit_admin($id = null) 
+    {
+        $where = array(
+            'kd_admin' => $id
+        );
+
+	    $this->load->view('admin/home_admin');
+        $data['users'] = $this->user->show_edit_admin($where);
+        $this->load->view('edit_admin', $data);
+    }
+
+    public function update_admin()
+	{
+        $data = array(
+            'nama' => 'a_' . ucwords($this->input->post('nama')),
+            'password' => md5($this->input->post('password')),
+            'email' => strtolower($this->input->post('email')),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'jk' => $this->input->post('jk'),
+            'level' => $this->input->post('permission'),
+        );
+
+        
+        $where = array(
+            'kd_admin' => $this->input->post('kd_admin')
+        );
+        
+        // die($where['kd_user']);  
+
+        $this->user->update_user($where, $data, 'admin');
+        // $this->session->set_userdata('session_nama', $data['nama']);
+        $msg = $this->session->set_flashdata('sukses', 'User Berhasil Diupdate!');
+        redirect('admin/dashboard/daftar-admin');  
+    }
+
+    public function cari_admin() 
+    {
+        $keyword = $this->input->post('keyword');
+        $data['users']=$this->user->daftaradmin_cari($keyword);
+		$this->load->view('admin/home_admin');
+        $this->load->view('daftaradmin-cari',$data);
+    }
+
+    public function tambahadmin()
+    {
+        $this->load->view('admin/home_admin');
+        $this->load->view('admin/tambah_admin');
+    }
+
+    public function storeadmin()
+    {
+        // $data = array(
+        //     'upload_path' => './assets/img/home/pop/', // folder lagu di simpan
+        //     'file_name' => $this->input->post('thumbnail'),
+        //     'allowed_types' => 'jpg', // ekstensi yang diizinkan
+        //     'overwrite' => true, // replace lagu yang sudah ada
+        //     'max_size' => 1024 // 1MB
+        // );
+        
+        // $this->load->library('upload', $data);
+
+        $todb = array(
+            'nama' => 'a_' . ucwords($this->input->post('nama')),
+            'password' => md5($this->input->post('password')),
+            'email' => strtolower($this->input->post('email')),
+            'tgl_lahir' => $this->input->post('tgl_lahir'),
+            'jk' => $this->input->post('jk'),
+            'level' => $this->input->post('permission'),
+        );
+
+        $this->db->insert('admin', $todb);
+        redirect('admin/dashboard/daftar-admin');  
+
+       
+
+        // if(!$this->upload->do_upload('berkas'))
+        // {
+        //     $error = array('error' => $this->upload->display_errors());
+		// 	$this->load->view('admin/home_admin');
+        //     $this->load->view('admin/isi_genre', $error);;
+        // } 
+        // else
+        // {
+        //     $msg = $this->session->set_flashdata('sukses', 'Lagu Berhasil Ditambahkan!');
+        //     redirect('admin/dashboard/daftar-genre');
+        // }
+    }
+
+    public function hapus_admin($id = null)
+    {
+        $where = array(
+            'kd_admin' => $id
+        );
+        
+        // unlink('./assets/img/home/pop'. '/' . str_replace(' ', '_', $where['thumbnail']));
+
+        $this->user->hapus_data($where,'admin');
+        redirect('admin/dashboard/daftar-admin');
     }
 }

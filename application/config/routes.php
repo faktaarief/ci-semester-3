@@ -90,6 +90,13 @@ $route['admin/dashboard/daftar-user/edit/(:num)'] = 'UploadController/edit_user/
 $route['admin/dashboard/daftar-user/edit/store'] = 'UploadController/update_user';
 $route['admin/dashboard/daftar-user/hapus/(:num)'] = 'UploadController/hapus_user/$1';
 
+$route['admin/dashboard/daftar-admin'] = 'UploadController/daftaradmin';
+$route['admin/dashboard/daftar-admin/cari'] = 'UploadController/cari_admin';
+$route['admin/dashboard/tambah-admin'] = 'UploadController/tambahadmin';
+$route['admin/dashboard/store-admin'] = 'UploadController/storeadmin';
+$route['admin/dashboard/daftar-admin/edit/(:num)'] = 'UploadController/edit_admin/$1';
+$route['admin/dashboard/daftar-admin/edit/store'] = 'UploadController/update_admin';
+$route['admin/dashboard/daftar-admin/hapus/(:num)'] = 'UploadController/hapus_admin/$1';
 
 $route['dashboard/premium'] = 'PagesController/pengguna_premium';
 $route['dashboard/free'] = 'PagesController/pengguna_gratis';
@@ -99,5 +106,7 @@ $route['playlist/cari'] = 'Welcomespotify/cari';
 $route['genres'] = 'Welcomespotify/genres';
 // $route['genres'] = 'Welcomespotify/genres_playlist';
 $route['genres/(:any)'] = 'Welcomespotify/genres_playlist';
+
+$route['upgrade-premium'] = 'Welcomespotify/upgrade';
 
 

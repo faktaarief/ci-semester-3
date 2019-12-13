@@ -19,8 +19,9 @@ class Playlist extends CI_Model
 
     public function joinTable() 
     {
-        $this->db->select('lagu.*, genre_music.kd_genre, genre_music.genre');
+        $this->db->select('lagu.*, genre_music.kd_genre, genre_music.genre, admin.kd_admin, admin.nama');
         $this->db->join('genre_music', 'lagu.kd_genre = genre_music.kd_genre');
+        $this->db->join('admin', 'lagu.kd_admin = admin.kd_admin');
         $this->db->from('lagu');
         $query = $this->db->get();
         return $query;

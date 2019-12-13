@@ -27,9 +27,19 @@
 				<p><input type="text" name="email" value="<?= $p->email; ?>"></p>				
 					<br>
 					<hr color="#928E8E" align="left"><br>
+					
+			<h3>Password</h3>
+				<p><input type="password" name="password" value="<?= $p->password; ?>"></p>				
+					<br>
+					<hr color="#928E8E" align="left"><br>
 
 			<h3>Tanggal Lahir</h3>
 				<p><input type="text" name="tgl_lahir" value="<?= $p->tgl_lahir; ?>"></p>				
+					<br>
+					<hr color="#928E8E" align="left"><br>
+
+			<h3>Foto</h3>
+				<p><input class="telusuri" type="file" name="berkas"></p>				
 					<br>
 					<hr color="#928E8E" align="left"><br>
 

@@ -7,10 +7,23 @@ class User extends CI_Model
         return $this->db->get('users');
     }
 
+    function ambil_admin() 
+    {
+        return $this->db->get('admin');
+    }
+
     function show_edit_user($where) 
     {
         $this->db->select('*');
         $this->db->from('users');
+        $this->db->where($where);
+        return $this->db->get()->result();
+    }
+
+    function show_edit_admin($where) 
+    {
+        $this->db->select('*');
+        $this->db->from('admin');
         $this->db->where($where);
         return $this->db->get()->result();
     }
@@ -26,6 +39,14 @@ class User extends CI_Model
         $this->db->from('users');
         $this->db->like('nama',$keyword);
         $this->db->or_like('kd_user',$keyword);
+        return $this->db->get()->result();
+    }
+
+    public function daftaradmin_cari($keyword){
+        $this->db->select('*');
+        $this->db->from('admin');
+        $this->db->like('nama',$keyword);
+        $this->db->or_like('kd_admin',$keyword);
         return $this->db->get()->result();
     }
 

@@ -4,8 +4,10 @@
 <div id="wrapprofil">
 	<center><img src="<?=base_url('assets/img/home/profil.jpg');?>" width="1100" height="580"></center>
 	<div id="sidebarprofil">
-			<img src="<?=base_url('assets/img/home/anonim.jpg');?>" width="100" height="100">
-			<p>Nama User</p>
+	<?php foreach ($profil as $p) { ?>
+			<img src="<?=base_url('assets/img/home/') . $p->foto;?>" width="100" height="100">
+			<p><?= $p->nama; ?></p>
+	<?php } ?>
 		<br>
 		<ul> 
        			<li><a href="#">Tinjauan Akun</a></li>
@@ -54,6 +56,19 @@
 						?>
 			<?php } ?>
 		</div>
+
+		<?php foreach($profil as $p) { ?>
+			<?php 
+				if ($p->level == 2) {
+					echo "
+					<center><div style='background-color: green; display: inline-block; color: white; padding: 10px; font-weight: bold;'>
+							<a style='text-decoration: none; color: white;' href='http://localhost/ci-semester-3/upgrade-premium'>UPGRADE TO PREMIUM</a>
+						</div></center>
+					";
+				} else 
+				echo "premium";
+			?>
+		<?php } ?>
 		
 		<h2>Paketmu</h2>
 			<!--Kalau premium, pake gambar premium. kalau free, pake gambar free-->

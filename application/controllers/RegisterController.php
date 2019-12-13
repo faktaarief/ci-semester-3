@@ -4,6 +4,9 @@ class RegisterController extends CI_Controller
 {
     function insertdata()
     {
+        
+        
+        
         $data = array(
             'email' => $this->input->post('email'),
             'password' => md5($this->input->post('password')),
@@ -12,6 +15,7 @@ class RegisterController extends CI_Controller
             'jk' => $this->input->post('jk'),
             'level' => '2'
         );
+        
         
         $tes = $this->db->select('users.*, status_users.*');
         die($tes);

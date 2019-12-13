@@ -8,6 +8,22 @@
 	<?= form_open_multipart('admin/dashboard/store'); ?>
 
 	<div id="forminput">
+		<!-- <h2>Uploader</h2> <br>	
+			<input class="upload" type="text" name="kd_admin" placeholder="Masukkan Judul Lagu"> <br><br>
+				<hr color="#928E8E" align="left">
+					<br> -->
+	<div id="forminput">
+			<input type="hidden" name="kd_admin" value="
+				<?php
+					foreach($lagu as $g) {
+						if($g->kd_admin == $this->session->userdata('session_id')) {
+							echo $this->session->userdata('session_id');
+						}
+					}
+				
+				?>
+				
+			">
 		<h2>Judul Lagu</h2> <br>	
 			<input class="upload" type="text" name="judul_lagu" placeholder="Masukkan Judul Lagu"> <br><br>
 				<hr color="#928E8E" align="left">

@@ -8,6 +8,35 @@ class UserController extends CI_Controller {
 
     function store()
     {
+
+        $this->load->model('Login');
+
+        $email = $this->input->post('email');
+
+        $cek_user  = $this->Login->auth_user_register($email);
+        
+
+        // if(count($cek_user)!=0){
+        //     # kalu value $hasil_username tidak 0
+        //             # echo 1 untuk pertanda username sudah ada pada db    
+        //                   echo "1"; 
+        //   }else{
+        //             # kalu value $hasil_username = 0
+        //             # echo 2 untuk pertanda username belum ada pada db
+        //       echo "2";
+        //   }
+          
+        // if($cek_user->num_rows() > 0) {
+        //     echo "1";
+        // } else {
+        //     echo "2";
+        // }
+
+
+        if($cek_user->num_rows() > 0) {
+            $this->session->set_flashdata('gagal', 'Email Sudah Terdaftar!');
+            redirect(base_url('create-account'));
+        } else
         $data = array(
             'email' => strtolower($this->input->post('email')),
             'password' => md5($this->input->post('password')),

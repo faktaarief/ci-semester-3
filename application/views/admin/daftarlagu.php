@@ -14,7 +14,7 @@
 	</div>
 	<div id="daftar">
 			<h1>Daftar Lagu</h1>
-			<?= $this->session->flashdata('sukses'); ?>
+			<div style="background-color: green;  display: inline-block; color: white;"> <?= $this->session->flashdata('sukses'); ?> </div>
 		<style>
 		table {
     display: block;
@@ -37,6 +37,7 @@
 				<th>Dirilis</th>
 				<th>Genre</th>
 				<th>File</th>
+				<th>Uploader</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -55,6 +56,7 @@
 						<source src="<?= base_url('assets/music/'.str_replace(' ', '_', $l->judul_lagu).'.mp3'); ?>" type="audio/mp3" />
 					</audio>
 				</td>
+				<td><?= substr($l->nama, 2); ?></td>
 				<?php echo form_open('admin/dashboard/daftar-lagu/hapus'. '/' . $l->kd_lagu) ?>
 					<td><a href="<?= base_url('admin/dashboard/daftar-lagu/edit').'/'.$l->kd_lagu ?>">Edit</a> | <input type="hidden" name="judul_lagu" value="<?= $l->judul_lagu; ?>"> <input class="del" type="submit" value="Hapus"></td>
 				<?php echo form_close() ?>

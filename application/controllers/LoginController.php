@@ -68,12 +68,33 @@ class LoginController extends CI_Controller
             // jika salah 
         } else if ($cek_admin->num_rows() > 0) {
             $data=$cek_admin->row_array();
-            $this->session->set_userdata('masuk_admin', TRUE);
-            $this->session->set_userdata('masuk', TRUE);
-
+            
             if($data['level'] == '1')
             {
+                $this->session->set_userdata('masuk_admin', TRUE);
+                $this->session->set_userdata('masuk', TRUE);
+                
                 $this->session->set_userdata('akses_admin', '1');
+                $this->session->set_userdata('session_id', $data['kd_admin']);
+                $this->session->set_userdata('session_nama', $data['nama']);
+
+                redirect(base_url('admin/dashboard'));
+            } else if ($data['level'] == '2')
+            {
+                $this->session->set_userdata('masuk_admin', TRUE);
+                $this->session->set_userdata('masuk', TRUE);
+                
+                $this->session->set_userdata('akses_admin', '2');
+                $this->session->set_userdata('session_id', $data['kd_admin']);
+                $this->session->set_userdata('session_nama', $data['nama']);
+
+                redirect(base_url('admin/dashboard'));
+            } else if ($data['level'] == '3')
+            {
+                $this->session->set_userdata('masuk_admin', TRUE);
+                $this->session->set_userdata('masuk', TRUE);
+                
+                $this->session->set_userdata('akses_admin', '3');
                 $this->session->set_userdata('session_id', $data['kd_admin']);
                 $this->session->set_userdata('session_nama', $data['nama']);
 

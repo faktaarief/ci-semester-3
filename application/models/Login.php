@@ -26,7 +26,7 @@ class Login extends CI_Model
 
     function auth_admin($nama, $password)
     {
-        $user = ucwords($nama);
+        $user = 'a_' . ucwords($nama);
         $email = strtolower($nama);
         $query1 = $this->db->query("SELECT * FROM admin WHERE nama='$user' AND password=MD5('$password') LIMIT 1");
         $query2 = $this->db->query("SELECT * FROM admin WHERE email='$email' AND password=MD5('$password') LIMIT 1");
@@ -39,6 +39,13 @@ class Login extends CI_Model
         } else 
 
         return $query;
+    }
+
+    function auth_user_register($email)
+    {
+        $query = $this->db->query("SELECT * FROM users WHERE email='$email' LIMIT 1");
+        return $query;
+        
     }
 
 }

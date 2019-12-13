@@ -5,17 +5,30 @@
         <link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
 </head>
 <body>
+<style>
+		table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+		</style>
 	<div id="headupload">
 		<h1>Dasbor Admin: Edit Lagu</h1>
 			<h2>Kelola Spotify, Update lagumu hari ini</h2>
 	</div>
-	<div id="daftar">
+	<!-- <div id="daftar"> -->
 	<table cellspacing='0'>
 		<thead>
             <?php echo form_open_multipart('UploadController/update') ?>
             <?php $a = 1; foreach ($lagu as $l) { ?>
 			<tr>
                 <td><input type="hidden" value="<?= $l->kd_lagu; ?>" name="kd_lagu"></td>
+            </tr>
+            <tr>
+                <th>Uploader</th>
+                <?php foreach($uploader as $u) { ?>
+                    <td><?= $u->nama; ?></td>
+                <?php } ?>
             </tr>
             <tr>
                 <th>Tgl Upload</th>

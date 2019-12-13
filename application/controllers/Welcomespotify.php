@@ -216,12 +216,31 @@ public function beranda(){
 
     public function update_profil()
 	{
+        $this->load->helper('string');
+        $nama_foto = random_string('alnum', 16) . '_' . $this->input->post('nama') . '.jpg';
+
+        // die($nama_foto);
+
+        $data = array(
+            'upload_path' => './assets/img/home/', // folder lagu di simpan
+            'file_name' => $nama_foto,
+            'allowed_types' => 'jpg', // ekstensi yang diizinkan
+            'overwrite' => true, // replace lagu yang sudah ada
+            'max_size' => 1024 // 1MB
+        );
+        
+        $this->load->library('upload', $data);
+
         $data = array(
             'nama' => $this->input->post('nama'),
             'email' => $this->input->post('email'),
             'tgl_lahir' => $this->input->post('tgl_lahir'),
-            'jk' => $this->input->post('jk')
+            'password' => md5($this->input->post('password')),
+            'jk' => $this->input->post('jk'),
+            'foto' => $nama_foto
         );
+
+        // die($data['password']);
 
         
         $where = array(
@@ -231,9 +250,25 @@ public function beranda(){
         $this->profil->update_profil($where, $data, 'users');
         $this->session->set_userdata('session_nama', $data['nama']);
         $msg = $this->session->set_flashdata('sukses', 'Profil Berhasil Diupdate!');
+
+        if(!$this->upload->do_upload('berkas'))
+            {
+                // $error = array('error' => $this->upload->display_errors());
+                // redirect('admin/dashboard/daftar-lagu');
+                redirect('dashboard/profil');
+            } 
+            else
+            {
+                $msg = $this->session->set_flashdata('sukses', 'Genre Berhasil Diupdate!');
+                redirect('dashboard/profil');
+            }
         redirect('dashboard/profil');
             
         
+    }
+
+    public function upgrade() {
+        echo "Thanks for request..";
     }
 }
 ?>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Daftar User</title>
+	<title>Daftar Admin</title>
         <link rel="stylesheet" type="text/css" href="<?= base_url();?>bootstrap/css/styledepan.css">
 </head>
 <body>
 	<div id="header">
 		<div id="addpl">
-	<a href="<?= base_url('admin/dashboard/tambah-user');?>">Tambah User</a>
+	<a href="<?= base_url('admin/dashboard/tambah-admin');?>">Tambah Admin</a>
 </div>
-	<h1>Daftar User</h1>
+	<h1>Daftar Admin</h1>
 	<?= $this->session->flashdata('sukses'); ?>
 	</div>
 	<div id="daftarcuy">
@@ -21,7 +21,7 @@
 }
 		</style>
 
-		<?php echo form_open('admin/dashboard/daftar-user/cari') ?>
+		<?php echo form_open('admin/dashboard/daftar-admin/cari') ?>
 			<input class="searchlagu" name="keyword" placeholder="search" required>
 						<input class="carilagu" type="submit" value="Cari">
 		<?php echo form_close() ?>
@@ -30,13 +30,12 @@
 			<tr>
 				<th>No</th>
 				<th>Nama</th>
-				<th>Kode User</th>
+				<th>Kode Admin</th>
 				<th>Email</th>
-				<!-- <th>Password</th> -->
+				<th>Password</th>
 				<th>Tanggal Lahir</th>
 				<th>Jenis Kelamin</th>
-				<th>Jenis Akun</th>
-				<th>Status</th>
+				<th>Permission</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -44,10 +43,10 @@
 			<?php $a = 1; foreach ($users as $u) { ?>
 			<tr>
 				<td><?= $a++; ?></td>
-				<td><?= ucwords($u->nama); ?></td>
-				<td><?= $u->kd_user; ?></td>
+				<td><?= ucwords(substr($u->nama, 2)); ?></td>
+				<td><?= $u->kd_admin; ?></td>
 				<td><?= $u->email; ?></td>
-				
+				<td><?= $u->password; ?></td>
 				<td><?= $u->tgl_lahir; ?></td>
 				<td>
 					<?php
@@ -59,26 +58,19 @@
 					?>
 				</td>
 				<td>
-					<?php 
+					<?php
 						if ($u->level == 1) {
-							echo "Premium";
+							echo "Read, Write (Admin, User, Genre, Lagu)";
 						} else if ($u->level == 2) {
-							echo "Free";
+							echo "Read, Write (Genre, Lagu)";
+						} else if ($u->level == 3) {
+							echo "Read, Write (User)";							
 						}
 					?>
 				</td>
-				<td>
-					<?php 
-						if ($u->status == 1) {
-							echo "Aktif";
-						} else {
-							echo "Belum Aktif";
-						}
-					?>
-				</td>
-				<td><a href="<?= base_url('	admin/dashboard/daftar-user/edit').'/'.$u->kd_user ?>">edit</a> | 
-				<?php echo form_open('admin/dashboard/daftar-user/hapus'. '/' . $u->kd_user) ?>
-					<input type="hidden" name="thumbnail" value="<?= $u->kd_user; ?>"> <input type="submit" value="hapus" class="del"></<input>
+				<td><a href="<?= base_url('	admin/dashboard/daftar-admin/edit').'/'.$u->kd_admin ?>">edit</a> | 
+				<?php echo form_open('admin/dashboard/daftar-admin/hapus'. '/' . $u->kd_admin) ?>
+					<input type="hidden" name="thumbnail" value="<?= $u->kd_admin; ?>"> <input type="submit" value="hapus" class="del"></<input>
 				<?php echo form_close() ?></td>
 			</tr>
 			<?php } ?>

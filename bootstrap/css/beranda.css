@@ -14,11 +14,13 @@ body
 	background: #111111;
 	overflow: hidden;
 	margin: auto;
+	float: left;
 	}
 	
 #head{
 	overflow:hidden;
 	margin-bottom:10px;
+	float: left;
 	}
 
 #head img{
@@ -50,7 +52,7 @@ body
 	}
 
 #picshow{
-	position:relative;
+	float: left;
 	width:1024px;
 	padding: 10px;
 	margin-left: 20px;
