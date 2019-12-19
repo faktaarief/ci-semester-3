@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['create-account'] = 'UserController/create'; 
 $route['create-account/store'] = 'UserController/store'; 
 $route['login'] = 'LoginController/index'; 
+$route['login/verify'] = 'UserController/verify'; 
 $route['login/auth'] = 'LoginController/auth';
 // $route['dashboard'] = 'PagesController/index';
 $route['dashboard'] = 'Welcomespotify/homedepan';
@@ -89,6 +90,7 @@ $route['admin/dashboard/store-user'] = 'UploadController/storeuser';
 $route['admin/dashboard/daftar-user/edit/(:num)'] = 'UploadController/edit_user/$1';
 $route['admin/dashboard/daftar-user/edit/store'] = 'UploadController/update_user';
 $route['admin/dashboard/daftar-user/hapus/(:num)'] = 'UploadController/hapus_user/$1';
+$route['admin/dashboard/daftar-user/delete'] = 'UploadController/deleteUser';
 
 $route['admin/dashboard/daftar-admin'] = 'UploadController/daftaradmin';
 $route['admin/dashboard/daftar-admin/cari'] = 'UploadController/cari_admin';

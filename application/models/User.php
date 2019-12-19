@@ -53,6 +53,15 @@ class User extends CI_Model
     public function hapus_data($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
-	}
+    }
+    
+    public function deleteData($kd_user) {
+        $this->db->where_in('kd_user', $kd_user);
+        $this->db->delete('users');
+    }
+
+    public function simpanRequest($data = null) {
+        $this->db->insert('request', $data);
+    }
 
 }

@@ -83,6 +83,7 @@
     <div class="container" id="needs-validation" novalidate>
         <div class="row">
             <div class="col-12 p-4 mx-auto">
+                    <?= $this->session->flashdata('pesan'); ?>
                 <h2 class="text-center mb-4" style="font-size: 18px; font-weight: bold;">Login to Account</h2>
                 <?php if($this->session->flashdata('gagal')) { ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -98,7 +99,7 @@
                     <!-- start input email  -->
                     <div class="form-group mx-auto">
                         <input type="text" id="email" class="form-control mt-3" style="height: 50px;" name="nama" required>
-                        <label class="form-control-placeholder" for="email">Email or Username</label>
+                        <label class="form-control-placeholder" for="email">Email</label>
                         <div class="invalid-feedback">
                             Please provide a valid user.
                         </div>

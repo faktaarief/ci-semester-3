@@ -25,9 +25,12 @@
 			<input class="searchlagu" name="keyword" placeholder="search" required>
 						<input class="carilagu" type="submit" value="Cari">
 		<?php echo form_close() ?>
+	
+	<?php echo form_open('admin/dashboard/daftar-user/delete') ?>
 	<table cellspacing='0'>
 		<thead>
 			<tr>
+				<th>Check</th>
 				<th>No</th>
 				<th>Nama</th>
 				<th>Kode User</th>
@@ -43,6 +46,7 @@
 		<tbody>
 			<?php $a = 1; foreach ($users as $u) { ?>
 			<tr>
+				<td><input type="checkbox" name="kd_user[]" value="<?= $u->kd_user; ?>"></td>
 				<td><?= $a++; ?></td>
 				<td><?= ucwords($u->nama); ?></td>
 				<td><?= $u->kd_user; ?></td>
@@ -78,12 +82,15 @@
 				</td>
 				<td><a href="<?= base_url('	admin/dashboard/daftar-user/edit').'/'.$u->kd_user ?>">edit</a> | 
 				<?php echo form_open('admin/dashboard/daftar-user/hapus'. '/' . $u->kd_user) ?>
-					<input type="hidden" name="thumbnail" value="<?= $u->kd_user; ?>"> <input type="submit" value="hapus" class="del"></<input>
+					<input type="hidden" name="thumbnail" value="<?= $u->kd_user; ?>"> <input type="submit" value="hapus" class="del" onclick="return confirm('Kamu yakin akan menghapus <?= $u->nama; ?> ?')"></<input>
 				<?php echo form_close() ?></td>
 			</tr>
 			<?php } ?>
 		</tbody>
 	</table>
+	<button type="submit" onclick="return confirm('Kamu yakin akan menghapus?')">Hapus</button>
+	<?php echo form_close() ?>
+	
 		</div>
 </body>
 </html>

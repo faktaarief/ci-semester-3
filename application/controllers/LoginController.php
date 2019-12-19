@@ -46,6 +46,7 @@ class LoginController extends CI_Controller
                 $this->session->set_userdata('akses', '1');
                 $this->session->set_userdata('session_id', $data['kd_user']);
                 $this->session->set_userdata('session_nama', $data['nama']);
+                $this->session->set_userdata('session_email', $data['email']);
 
                 redirect(base_url('dashboard'));
             }
@@ -56,11 +57,15 @@ class LoginController extends CI_Controller
                     $this->session->set_userdata('status', 'not-verify');
                     $this->session->set_userdata('akses', '2');
                     $this->session->set_userdata('session_id', $data['kd_user']);
-                    $this->session->set_userdata('session_nama', $data['nama']);    
+                    $this->session->set_userdata('session_nama', $data['nama']); 
+                    $this->session->set_userdata('session_email', $data['email']);
+
                 } else {
                     $this->session->set_userdata('akses', '2');
                     $this->session->set_userdata('session_id', $data['kd_user']);
                     $this->session->set_userdata('session_nama', $data['nama']);
+                    $this->session->set_userdata('session_email', $data['email']);
+
                 }
 
                 redirect(base_url('dashboard'));
@@ -77,6 +82,8 @@ class LoginController extends CI_Controller
                 $this->session->set_userdata('akses_admin', '1');
                 $this->session->set_userdata('session_id', $data['kd_admin']);
                 $this->session->set_userdata('session_nama', $data['nama']);
+                $this->session->set_userdata('session_email', $data['email']);
+
 
                 redirect(base_url('admin/dashboard'));
             } else if ($data['level'] == '2')
@@ -87,6 +94,8 @@ class LoginController extends CI_Controller
                 $this->session->set_userdata('akses_admin', '2');
                 $this->session->set_userdata('session_id', $data['kd_admin']);
                 $this->session->set_userdata('session_nama', $data['nama']);
+                $this->session->set_userdata('session_email', $data['email']);
+
 
                 redirect(base_url('admin/dashboard'));
             } else if ($data['level'] == '3')
@@ -97,6 +106,8 @@ class LoginController extends CI_Controller
                 $this->session->set_userdata('akses_admin', '3');
                 $this->session->set_userdata('session_id', $data['kd_admin']);
                 $this->session->set_userdata('session_nama', $data['nama']);
+                $this->session->set_userdata('session_email', $data['email']);
+
 
                 redirect(base_url('admin/dashboard'));
             }

@@ -17,4 +17,25 @@ class Register extends CI_Model
 
         redirect('/');
     }
+
+    function simpanData($data = null)
+    {
+        $this->db->insert('users', $data);
+    }
+
+    function simpanToken($data = null)
+    {
+        $this->db->insert('user_token', $data);
+    }
+
+    public function cekData($where = null)
+    {
+        return $this->db->get_where('users', $where);
+    }
+
+    public function cekToken($where = null)
+    {
+        return $this->db->get_where('user_token', $where);
+    }
+    
 }

@@ -14,7 +14,9 @@
 		</ul>
 </div>
 	<div id="isiprofil">
-	<h1>Tinjauan Akun</h1>
+		<h1>Tinjauan Akun</h1>
+		<h2 style="background-color: green; color:white; display: inline; font-size: 18px;"><?= $this->session->flashdata('sukses'); ?></h2> <br> <br>
+		<h2 style="background-color: red; color:white; display: inline; font-size: 18px;"><?= $this->session->flashdata('gagal'); ?></h2> <br> <br>
 		<h2>Profil</h2>
 		<?php foreach ($profil as $p) { ?>
 			<h3>User</h3>
@@ -58,16 +60,21 @@
 		</div>
 
 		<?php foreach($profil as $p) { ?>
+			<?php echo form_open('upgrade-premium') ?>
 			<?php 
 				if ($p->level == 2) {
 					echo "
-					<center><div style='background-color: green; display: inline-block; color: white; padding: 10px; font-weight: bold;'>
-							<a style='text-decoration: none; color: white;' href='http://localhost/ci-semester-3/upgrade-premium'>UPGRADE TO PREMIUM</a>
+					<center><div>
+							<input type='hidden' name='email' value='".$this->session->userdata('session_email') ."'>
+							<button style='background-color: green; display: inline-block; color: white; padding: 10px; font-weight: bold;' type='submit'>UPGRADE TO PREMIUM</button>
+
+
 						</div></center>
 					";
 				} else 
 				echo "premium";
 			?>
+			<?php echo form_close() ?>
 		<?php } ?>
 		
 		<h2>Paketmu</h2>

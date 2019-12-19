@@ -393,6 +393,13 @@ class UploadController extends CI_Controller
         redirect('admin/dashboard/daftar-user');
     }
 
+    public function deleteUser()
+    {
+        $kd_user = $this->input->post('kd_user');
+        $this->user->deleteData($kd_user);
+        redirect('admin/dashboard/daftar-user');
+    }
+
     public function daftaradmin()
     {
         $data['users'] = $this->user->ambil_admin()->result();
@@ -496,6 +503,8 @@ class UploadController extends CI_Controller
         );
         
         // unlink('./assets/img/home/pop'. '/' . str_replace(' ', '_', $where['thumbnail']));
+
+        
 
         $this->user->hapus_data($where,'admin');
         redirect('admin/dashboard/daftar-admin');

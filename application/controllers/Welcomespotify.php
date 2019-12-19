@@ -169,9 +169,10 @@ public function beranda(){
 	public function profil() 
 		{
             $akun = $this->session->userdata('session_nama');
+            $akun_email = $this->session->userdata('session_email');
             
             $where = array(
-                'nama' => $akun  
+                'email' => $akun_email,  
             );
 
             // die($where['nama']);
@@ -268,7 +269,29 @@ public function beranda(){
     }
 
     public function upgrade() {
-        echo "Thanks for request..";
+
+        $this->form_validation->set_rules('email', 'Alamat Email', 'required|is_unique[request.email]', [
+            'required' => 'Email Belum Diisi',
+            'is_unique' => 'Email Sudah Terdaftar'
+        ]);
+
+        if ($this->form_validation->run() == !TRUE) {
+            $this->session->set_flashdata('gagal', 'Request Anda Masih Dalam Proses!');
+
+            redirect('dashboard/profil');
+        } else {
+            $data = [
+                'email' => $this->input->post('email'),
+                'date' => time()
+            ];
+
+
+            $this->session->set_flashdata('sukses', 'Request Berhasil, tunggu 1x24 Jam!');
+            $this->user->simpanRequest($data);
+
+            redirect('dashboard/profil');
+
+        }
     }
 }
 ?>
